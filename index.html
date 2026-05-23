@@ -475,6 +475,75 @@
     font-size: 13px;
     color: var(--text-mid);
   }
+  /* ══════════════════════════════════════
+     MOBILE — max 768px
+     ══════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* Nav */
+    nav {
+      padding: 0 16px;
+      gap: 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      height: auto;
+      flex-wrap: nowrap;
+    }
+    .nav-brand { font-size: 14px; margin-right: 8px; }
+    .nav-tab   { font-size: 12px; white-space: nowrap; flex-shrink: 0; }
+    .nav-meta  { display: none; }
+
+    /* Screen padding */
+    .screen { padding: 20px 16px; }
+
+    /* KPI row — 2 colunas */
+    .kpi-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .kpi-value { font-size: 22px; }
+
+    /* Tier row — 2 colunas */
+    .tier-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Charts — single column */
+    .chart-row.two {
+      grid-template-columns: 1fr;
+    }
+
+    /* Screen header */
+    .screen-header h1 { font-size: 22px; }
+
+    /* Insights grid — single column */
+    .insights-grid {
+      grid-template-columns: 1fr;
+    }
+    .insight-card.featured { grid-column: 1; }
+
+    /* Regional bars label */
+    .reg-row { grid-template-columns: 90px 1fr; }
+    .reg-name { font-size: 12px; }
+
+    /* Tables — scroll horizontal */
+    .data-table th,
+    .data-table td { font-size: 10px; padding: 5px 5px; }
+
+    /* Chart heights — slightly shorter on mobile */
+    .chart-inner[style*="height:320px"] { height: 240px !important; }
+    .chart-inner[style*="height:300px"] { height: 220px !important; }
+    .chart-inner[style*="height:260px"] { height: 200px !important; }
+    .chart-inner[style*="height:240px"] { height: 200px !important; }
+
+    /* Estado bars */
+    #estado_gap_html > div {
+      flex-wrap: wrap;
+    }
+    #estado_gap_html .state-label-col {
+      width: 100% !important;
+      margin-bottom: 4px;
+    }
+  }
 </style>
 </head>
 <body>
