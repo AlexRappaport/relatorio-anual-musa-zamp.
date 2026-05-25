@@ -1311,6 +1311,15 @@
 </div><!-- /screen-insights -->
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.screen').forEach(s => {
+    s.style.display = 'none';
+    s.classList.remove('active');
+  });
+  const geral = document.getElementById('screen-geral');
+  if (geral) { geral.style.display = 'block'; geral.classList.add('active'); }
+});
+
 function showScreen(id, btn) {
   document.querySelectorAll('.screen').forEach(s => {
     s.classList.remove('active');
