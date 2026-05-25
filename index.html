@@ -416,48 +416,89 @@
     border: 5px solid transparent;
     border-top-color: rgba(0,0,0,0.85);
   }
-  .insights-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+  /* ── INSIGHTS ── */
+  .insight-featured {
+    background: #222222;
+    border-radius: var(--radius);
+    padding: 40px 48px;
+    margin-bottom: 40px;
   }
-
-  .insight-card {
+  .insight-featured-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+  .insight-featured-title {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 36px;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .insight-featured-sub {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+    max-width: 680px;
+  }
+  .insight-section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: var(--orange-dark);
+    margin-bottom: 16px;
+    margin-top: 40px;
+  }
+  .insight-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .insight-new-card {
     background: var(--card);
     border-radius: var(--radius);
-    padding: 24px;
-    border: 1px solid rgba(0,0,0,0.06);
+    padding: 20px 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
   }
-
-  .insight-icon {
-    font-size: 22px;
-    margin-bottom: 12px;
+  .insight-new-num {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--orange-dark);
+    font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
+    padding-top: 3px;
+    width: 20px;
   }
-
-  .insight-title {
+  .insight-new-content { flex: 1; }
+  .insight-new-title {
     font-family: 'Libre Caslon Text', serif;
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.35;
     color: var(--text);
-    margin-bottom: 8px;
-    line-height: 1.3;
+    margin-bottom: 6px;
   }
-
-  .insight-body {
+  .insight-new-body {
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--text-mid);
+  }
+  .insight-new-card-blue {
+    background: var(--card);
+    border-color: rgba(0,0,0,0.05);
+  }
+  .insight-new-num-blue { color: #5577dd; }
+  .insight-section-label-blue { color: #5577dd; }
+  .insight-section-desc {
     font-size: 13px;
     color: var(--text-mid);
-    line-height: 1.7;
+    margin-bottom: 16px;
+    margin-top: 2px;
   }
-
-  .insight-body strong { color: var(--text); font-weight: 600; }
-
-  .insight-card.featured {
-    background: var(--text);
-    grid-column: 1 / -1;
-  }
-
-  .insight-card.featured .insight-title { color: #fff; }
-  .insight-card.featured .insight-body { color: rgba(255,255,255,0.65); }
-  .insight-card.featured .insight-body strong { color: var(--orange); }
 
   /* ── SCREEN HEADER ── */
   .screen-header {
@@ -494,7 +535,8 @@
     .nav-meta  { display: none; }
 
     /* Screen padding */
-    .screen { padding: 20px 16px; }
+    .screen { display: none; padding: 20px 16px; }
+    .screen.active { display: block; }
 
     /* KPI row — 2 colunas */
     .kpi-row {
@@ -516,10 +558,9 @@
     .screen-header h1 { font-size: 22px; }
 
     /* Insights grid — single column */
-    .insights-grid {
-      grid-template-columns: 1fr;
-    }
-    .insight-card.featured { grid-column: 1; }
+    .insight-cards-grid { grid-template-columns: 1fr; }
+    .insight-featured { padding: 28px 24px; }
+    .insight-featured-title { font-size: 26px; }
 
     /* Regional bars label */
     .reg-row { grid-template-columns: 90px 1fr; }
@@ -554,7 +595,7 @@
   <span class="nav-brand">Zamp <span>·</span> Óleo Alimentar</span>
   <button class="nav-tab active" onclick="showScreen('geral', this)">Visão Geral</button>
   <button class="nav-tab" onclick="showScreen('bk', this)">Burger King</button>
-  <button class="nav-tab" onclick="showScreen('popeyes', this)">PLK</button>
+  <button class="nav-tab" onclick="showScreen('popeyes', this)">Popeyes</button>
   <button class="nav-tab" onclick="showScreen('insights', this)">Insights</button>
   <span class="nav-meta">Jun/2025 – Abr/2026 · 776 unidades</span>
 </nav>
@@ -793,78 +834,492 @@
 </div><!-- /screen-geral -->
 
 <!-- ════════════════════════════════════════ TELA 2 — BK -->
-<div class="screen" id="screen-bk">
+<div class="screen" id="screen-bk" style="display:none">
   <div class="screen-header">
     <h1>Burger King</h1>
     <p>689 unidades · média 93 L/mês · Jun/2025 – Abr/2026</p>
   </div>
-  <div style="background:var(--card);border-radius:var(--radius);padding:40px;text-align:center;color:var(--text-light);border:1px solid rgba(0,0,0,0.06)">
-    <p style="font-family:'Libre Caslon Text',serif;font-size:20px;color:var(--text);margin-bottom:8px">Em breve</p>
-    <p style="font-size:13px">Tela 2 será construída na próxima etapa.</p>
+
+  <!-- KPIs -->
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-label">Total unidades</div>
+      <div class="kpi-value">689</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Volume total</div>
+      <div class="kpi-value">703k</div>
+      <div class="kpi-sub">litros no período</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Receita estimada</div>
+      <div class="kpi-value">R$ 1,2M</div>
+      <div class="kpi-sub">repasse no período</div>
+    </div>
+    <div class="kpi-card highlight-blue">
+      <div class="kpi-label">Média mensal</div>
+      <div class="kpi-value">93 L</div>
+      <div class="kpi-sub">por unidade</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">No Tier 1</div>
+      <div class="kpi-value">18%</div>
+      <div class="kpi-sub">124 unidades</div>
+    </div>
   </div>
-</div>
+
+  <!-- Tiers -->
+  <div class="section-label">Tiers de geração — média mensal em litros</div>
+  <div class="tier-row">
+    <div class="tier-card" style="border-top:3px solid #444">
+      <span class="tier-badge" style="background:#f0f0f0;color:#444">Tier 1 — alto</span>
+      <div class="tier-range">média 169 L/mês</div>
+      <div class="tier-count">124 unidades</div>
+    </div>
+    <div class="tier-card" style="border-top:3px solid #888">
+      <span class="tier-badge" style="background:#f5f5f5;color:#888">Tier 2 — médio-alto</span>
+      <div class="tier-range">média 110 L/mês</div>
+      <div class="tier-count">189 unidades</div>
+    </div>
+    <div class="tier-card" style="border-top:3px solid #bbb">
+      <span class="tier-badge" style="background:#f8f8f8;color:#aaa">Tier 3 — médio-baixo</span>
+      <div class="tier-range">média 76 L/mês</div>
+      <div class="tier-count">185 unidades</div>
+    </div>
+    <div class="tier-card" style="border-top:3px solid #e0e0e0">
+      <span class="tier-badge" style="background:#fafafa;color:#ccc">Tier 4 — baixo</span>
+      <div class="tier-range">média 42 L/mês</div>
+      <div class="tier-count">191 unidades</div>
+    </div>
+  </div>
+
+  <!-- Sazonalidade Shop vs Rua -->
+  <div class="chart-row one">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Sazonalidade — Shopping vs Rua</div>
+        <div class="chart-insight">Comportamento sazonal idêntico — 94L Shop vs 91L Rua. Vale de inverno (Jun–Ago) afeta os dois formatos igualmente. Formato de loja não explica volume no BKB.</div>
+      </div>
+      <div class="chart-inner" style="height:280px;position:relative">
+        <canvas id="bk_saz"></canvas>
+      </div>
+      <div class="chart-legend">
+        <span><span class="leg-dot" style="background:#8AA5FF"></span>Shopping · 94L média</span>
+        <span><span class="leg-dot" style="background:#c4ceff"></span>Rua · 91L média</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Regional -->
+  <div class="chart-row two">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Alta performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f0f0f0;color:#444">Tiers 1 + 2</span></div>
+        <div class="chart-insight">Norte lidera com 86%. Sudeste é crítico — apenas 37% das 475 lojas em T1+T2.</div>
+      </div>
+      <div class="chart-inner">
+        <div class="reg-list" id="bk_reg_t12"></div>
+      </div>
+      <div class="chart-legend">
+        <span><span class="leg-dot" style="background:#8AA5FF"></span>BKB</span>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Baixa performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">Tiers 3 + 4</span></div>
+        <div class="chart-insight">Sudeste concentra 63% das lojas BKB nos tiers baixos — 299 de 475 unidades.</div>
+      </div>
+      <div class="chart-inner">
+        <div class="reg-list" id="bk_reg_t34"></div>
+      </div>
+      <div class="chart-legend">
+        <span><span class="leg-dot" style="background:#8AA5FF"></span>BKB</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Captura realizada vs potencial -->
+  <div class="chart-row one">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Captura realizada vs potencial</div>
+        <div class="chart-insight">Potencial mensal de R$ 155k. Média de realização: 75%. Gap médio de R$ 39k/mês.</div>
+      </div>
+      <div class="chart-inner" style="height:280px;position:relative">
+        <canvas id="bk_repasse"></canvas>
+      </div>
+      <div class="chart-legend">
+        <span><span class="leg-dot" style="background:#8AA5FF"></span>Realizado</span>
+        <span><span class="leg-dot" style="background:#c4ceff"></span>Gap (potencial)</span>
+        <span><span style="display:inline-block;width:18px;height:0;border-top:2px solid #5577dd;vertical-align:middle;margin-right:4px"></span>% realizado</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desperdício por estado BKB -->
+  <div class="chart-row one">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Desperdício de receita por estado</div>
+        <div class="chart-insight">SP concentra 48% do gap BKB (R$ 276k). RJ tem o maior gap por loja — R$ 1.086/loja com apenas 89 unidades.</div>
+      </div>
+      <div class="chart-inner" id="bk_estado_gap_html" style="padding:12px 16px"></div>
+      <div class="chart-legend">
+        <span><span class="leg-dot" style="background:#8AA5FF"></span>Realizado (período)</span>
+        <span><span class="leg-dot" style="background:#c4ceff"></span>Gap potencial</span>
+        <span><span style="display:inline-block;width:18px;height:4px;background:#5577dd;border-radius:3px;opacity:0.7;vertical-align:middle;margin-right:4px"></span>% do gap total</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top 10 + Bottom 10 -->
+  <div class="chart-row two">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Top 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#eef1ff;color:#5577dd">maior volume médio</span></div>
+        <div class="chart-insight">Maringá (PR) domina com 3 unidades no top 10. Nova Iguaçu (RJ) aparece duas vezes.</div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table">
+          <thead><tr><th>Nome</th><th>Cidade</th><th>UF</th><th>Tier</th><th>Média</th><th>Melhor</th><th>Pior</th></tr></thead>
+          <tbody>
+            <tr><td>Catuaí Shop Maringá</td><td>Maringá</td><td>PR</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>563 L</td><td>844 L</td><td>333 L</td></tr>
+            <tr><td>FS Maringá - Praça M. Ribas</td><td>Maringá</td><td>PR</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>291 L</td><td>489 L</td><td>122 L</td></tr>
+            <tr><td>FS Nova Iguaçu - Rod. Dutra</td><td>Nova Iguaçu</td><td>RJ</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>255 L</td><td>444 L</td><td>100 L</td></tr>
+            <tr><td>ILR RJ - R. General Roca</td><td>Rio de Janeiro</td><td>RJ</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>253 L</td><td>333 L</td><td>156 L</td></tr>
+            <tr><td>Shop Royal Plaza Londrina</td><td>Londrina</td><td>PR</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>229 L</td><td>311 L</td><td>122 L</td></tr>
+            <tr><td>FS Ponta Grossa - Bald Taques</td><td>Ponta Grossa</td><td>PR</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>221 L</td><td>422 L</td><td>0 L</td></tr>
+            <tr><td>FS Curitiba - Av. Floriano</td><td>Curitiba</td><td>PR</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>220 L</td><td>356 L</td><td>78 L</td></tr>
+            <tr><td>Shop Boulevard Belém</td><td>Belém</td><td>PA</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>220 L</td><td>411 L</td><td>122 L</td></tr>
+            <tr><td>Shop Paralela</td><td>Salvador</td><td>BA</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>216 L</td><td>267 L</td><td>122 L</td></tr>
+            <tr><td>Shop Nova Iguaçu</td><td>Nova Iguaçu</td><td>RJ</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>215 L</td><td>444 L</td><td>0 L</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Bottom 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">menor volume médio</span></div>
+        <div class="chart-insight">9 de 10 em SP. Várias com pior mês em 0L — meses sem coleta registrada.</div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table">
+          <thead><tr><th>Nome</th><th>Cidade</th><th>UF</th><th>Tier</th><th>Média</th><th>Melhor</th><th>Pior</th></tr></thead>
+          <tbody>
+            <tr><td>Extra Mooca</td><td>São Paulo</td><td>SP</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>2 L</td><td>22 L</td><td>0 L</td></tr>
+            <tr><td>ILR SP - Rua XV de Novembro</td><td>São Paulo</td><td>SP</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>3 L</td><td>22 L</td><td>0 L</td></tr>
+            <tr><td>Shop Plaza Sul</td><td>São Paulo</td><td>SP</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>5 L</td><td>22 L</td><td>0 L</td></tr>
+            <tr><td>Tietê Mall</td><td>São Paulo</td><td>SP</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>5 L</td><td>33 L</td><td>0 L</td></tr>
+            <tr><td>FS Inajar de Souza</td><td>São Paulo</td><td>SP</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>5 L</td><td>44 L</td><td>0 L</td></tr>
+            <tr><td>Shop Center 3</td><td>São Paulo</td><td>SP</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>6 L</td><td>44 L</td><td>0 L</td></tr>
+            <tr><td>Pátio Metrô São Bento</td><td>São Paulo</td><td>SP</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>6 L</td><td>44 L</td><td>0 L</td></tr>
+            <tr><td>Jandira Plaza Shop</td><td>Jandira</td><td>SP</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>6 L</td><td>56 L</td><td>0 L</td></tr>
+            <tr><td>Montes Claros Shop</td><td>Montes Claros</td><td>MG</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>9 L</td><td>33 L</td><td>0 L</td></tr>
+            <tr><td>Campinas Shop</td><td>Campinas</td><td>SP</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>10 L</td><td>56 L</td><td>0 L</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /screen-bk -->
 
 <!-- ════════════════════════════════════════ TELA 3 — POPEYES -->
-<div class="screen" id="screen-popeyes">
+<div class="screen" id="screen-popeyes" style="display:none">
   <div class="screen-header">
     <h1>Popeyes</h1>
     <p>87 unidades · média 224 L/mês · Jun/2025 – Abr/2026</p>
   </div>
-  <div style="background:var(--card);border-radius:var(--radius);padding:40px;text-align:center;color:var(--text-light);border:1px solid rgba(0,0,0,0.06)">
-    <p style="font-family:'Libre Caslon Text',serif;font-size:20px;color:var(--text);margin-bottom:8px">Em breve</p>
-    <p style="font-size:13px">Tela 3 será construída na próxima etapa.</p>
+
+  <!-- KPIs -->
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-label">Total unidades</div>
+      <div class="kpi-value">87</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Volume total</div>
+      <div class="kpi-value">214k</div>
+      <div class="kpi-sub">litros no período</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Receita estimada</div>
+      <div class="kpi-value">R$ 385k</div>
+      <div class="kpi-sub">repasse no período</div>
+    </div>
+    <div class="kpi-card highlight-orange">
+      <div class="kpi-label">Média mensal</div>
+      <div class="kpi-value">224 L</div>
+      <div class="kpi-sub">por unidade</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">No Tier 1</div>
+      <div class="kpi-value">80%</div>
+      <div class="kpi-sub">70 unidades</div>
+    </div>
   </div>
-</div>
+
+  <!-- Tiers -->
+  <div class="section-label">Tiers de geração — média mensal em litros</div>
+  <div class="tier-row">
+    <div class="tier-card" style="border-top:3px solid #444">
+      <span class="tier-badge" style="background:#f0f0f0;color:#444">Tier 1 — alto</span>
+      <div class="tier-range">média 255 L/mês</div>
+      <div class="tier-count">70 unidades</div>
+    </div>
+    <div class="tier-card" style="border-top:3px solid #888">
+      <span class="tier-badge" style="background:#f5f5f5;color:#888">Tier 2 — médio-alto</span>
+      <div class="tier-range">média 118 L/mês</div>
+      <div class="tier-count">10 unidades</div>
+    </div>
+    <div class="tier-card" style="border-top:3px solid #bbb">
+      <span class="tier-badge" style="background:#f8f8f8;color:#aaa">Tier 3 — médio-baixo</span>
+      <div class="tier-range">média 79 L/mês</div>
+      <div class="tier-count">4 unidades</div>
+    </div>
+    <div class="tier-card" style="border-top:3px solid #e0e0e0">
+      <span class="tier-badge" style="background:#fafafa;color:#ccc">Tier 4 — baixo</span>
+      <div class="tier-range">média 39 L/mês</div>
+      <div class="tier-count">3 unidades</div>
+    </div>
+  </div>
+
+  <!-- Sazonalidade -->
+  <div class="chart-row one">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Sazonalidade mensal</div>
+        <div class="chart-insight">Jun/25 atípico (ramp-up). Pico em Set/25 (267L). Queda em Nov/25 e Abr/26. PLK é 99% shopping — sazonalidade reflete tráfego de mall.</div>
+      </div>
+      <div class="chart-inner" style="height:280px;position:relative">
+        <canvas id="plk_saz"></canvas>
+      </div>
+      <div class="chart-legend">
+        <span><span class="leg-dot" style="background:#FFBA86"></span>PLK Shop · 86 un.</span>
+        <span><span class="leg-dot" style="background:#FFD4A8"></span>PLK Rua · 1 un.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Regional -->
+  <div class="chart-row two">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Alta performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f0f0f0;color:#444">Tiers 1 + 2</span></div>
+        <div class="chart-insight">Sul e Nordeste com 100% em T1+T2. PLK não tem presença no Norte.</div>
+      </div>
+      <div class="chart-inner">
+        <div class="reg-list" id="plk_reg_t12"></div>
+      </div>
+      <div class="chart-legend">
+        <span><span class="leg-dot" style="background:#FFBA86"></span>PLK</span>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Baixa performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">Tiers 3 + 4</span></div>
+        <div class="chart-insight">Apenas Sudeste e Centro-Oeste têm lojas PLK nos tiers baixos.</div>
+      </div>
+      <div class="chart-inner">
+        <div class="reg-list" id="plk_reg_t34"></div>
+      </div>
+      <div class="chart-legend">
+        <span><span class="leg-dot" style="background:#FFD4A8"></span>PLK</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Captura realizada vs potencial -->
+  <div class="chart-row one">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Captura realizada vs potencial</div>
+        <div class="chart-insight">PLK já realiza acima do potencial em vários meses — T1 domina. Gap concentrado em Jun/25 (ramp-up) e meses de queda sazonal.</div>
+      </div>
+      <div class="chart-inner" style="height:280px;position:relative">
+        <canvas id="plk_repasse"></canvas>
+      </div>
+      <div class="chart-legend">
+        <span><span class="leg-dot" style="background:#FFBA86"></span>Realizado</span>
+        <span><span class="leg-dot" style="background:#FFD4A8"></span>Gap (potencial)</span>
+        <span><span style="display:inline-block;width:18px;height:0;border-top:2px solid #b35a00;vertical-align:middle;margin-right:4px"></span>% realizado</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desperdício por estado PLK -->
+  <div class="chart-row one">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Desperdício de receita por estado</div>
+        <div class="chart-insight">Gap total PLK é de R$ 21,9k — muito menor que BKB pois 80% das lojas já estão no T1. SP e RJ concentram 77% do gap restante.</div>
+      </div>
+      <div class="chart-inner" id="plk_estado_gap_html" style="padding:12px 16px"></div>
+      <div class="chart-legend">
+        <span><span class="leg-dot" style="background:#FFBA86"></span>Realizado (período)</span>
+        <span><span class="leg-dot" style="background:#FFD4A8"></span>Gap potencial</span>
+        <span><span style="display:inline-block;width:18px;height:4px;background:#b35a00;border-radius:3px;opacity:0.7;vertical-align:middle;margin-right:4px"></span>% do gap total</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top 10 + Bottom 10 -->
+  <div class="chart-row two">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Top 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#fff5ee;color:#b35a00">maior volume médio</span></div>
+        <div class="chart-insight">SP domina com 7 das 10 maiores. Cantareira Norte lidera com 629L/mês.</div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table">
+          <thead><tr><th>Nome</th><th>Cidade</th><th>UF</th><th>Tier</th><th>Média</th><th>Melhor</th><th>Pior</th></tr></thead>
+          <tbody>
+            <tr><td>Cantareira Norte Shop</td><td>São Paulo</td><td>SP</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>629 L</td><td>922 L</td><td>256 L</td></tr>
+            <tr><td>Shop Tucuruvi</td><td>São Paulo</td><td>SP</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>504 L</td><td>1.067 L</td><td>33 L</td></tr>
+            <tr><td>Park Shop Barueri</td><td>Barueri</td><td>SP</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>474 L</td><td>656 L</td><td>189 L</td></tr>
+            <tr><td>RioMar Recife</td><td>Recife</td><td>PE</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>422 L</td><td>778 L</td><td>0 L</td></tr>
+            <tr><td>Grand Plaza Shopping</td><td>Santo André</td><td>SP</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>404 L</td><td>700 L</td><td>156 L</td></tr>
+            <tr><td>Shop São José Pinhais</td><td>S. J. Pinhais</td><td>PR</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>399 L</td><td>633 L</td><td>222 L</td></tr>
+            <tr><td>Super Shop Osasco</td><td>Osasco</td><td>SP</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>386 L</td><td>689 L</td><td>167 L</td></tr>
+            <tr><td>Shop Parque Dom Pedro</td><td>Campinas</td><td>SP</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>376 L</td><td>611 L</td><td>0 L</td></tr>
+            <tr><td>Shop Metrópole SBC</td><td>S. Bernardo</td><td>SP</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>365 L</td><td>689 L</td><td>100 L</td></tr>
+            <tr><td>Campinas Shop</td><td>Campinas</td><td>SP</td><td><span class="tier-pill" style="background:#f0f0f0;color:#444">T1</span></td><td>358 L</td><td>578 L</td><td>0 L</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Bottom 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">menor volume médio</span></div>
+        <div class="chart-insight">Shopping Light (SP) é a pior PLK com apenas 17L/mês. Várias com pior mês em 0L — lojas recentes.</div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table">
+          <thead><tr><th>Nome</th><th>Cidade</th><th>UF</th><th>Tier</th><th>Média</th><th>Melhor</th><th>Pior</th></tr></thead>
+          <tbody>
+            <tr><td>Shopping Light</td><td>São Paulo</td><td>SP</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>17 L</td><td>122 L</td><td>0 L</td></tr>
+            <tr><td>Iguatemi Esplanada</td><td>Votorantim</td><td>SP</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>49 L</td><td>211 L</td><td>0 L</td></tr>
+            <tr><td>Bangu Shop</td><td>Rio de Janeiro</td><td>RJ</td><td><span class="tier-pill" style="background:#fafafa;color:#ccc">T4</span></td><td>51 L</td><td>222 L</td><td>0 L</td></tr>
+            <tr><td>Shop Tamboré</td><td>Barueri</td><td>SP</td><td><span class="tier-pill" style="background:#f8f8f8;color:#aaa">T3</span></td><td>71 L</td><td>322 L</td><td>0 L</td></tr>
+            <tr><td>FC Shop Vale Sul</td><td>S. J. Campos</td><td>SP</td><td><span class="tier-pill" style="background:#f8f8f8;color:#aaa">T3</span></td><td>80 L</td><td>333 L</td><td>0 L</td></tr>
+            <tr><td>Shop Madureira</td><td>Rio de Janeiro</td><td>RJ</td><td><span class="tier-pill" style="background:#f8f8f8;color:#aaa">T3</span></td><td>81 L</td><td>189 L</td><td>0 L</td></tr>
+            <tr><td>Shop Taguatinga</td><td>Brasília</td><td>DF</td><td><span class="tier-pill" style="background:#f8f8f8;color:#aaa">T3</span></td><td>84 L</td><td>289 L</td><td>0 L</td></tr>
+            <tr><td>Shop Bonsucesso</td><td>Guarulhos</td><td>SP</td><td><span class="tier-pill" style="background:#f5f5f5;color:#888">T2</span></td><td>103 L</td><td>200 L</td><td>33 L</td></tr>
+            <tr><td>Shop Passeio das Águas</td><td>Goiânia</td><td>GO</td><td><span class="tier-pill" style="background:#f5f5f5;color:#888">T2</span></td><td>106 L</td><td>500 L</td><td>0 L</td></tr>
+            <tr><td>Carioca Shop</td><td>Rio de Janeiro</td><td>RJ</td><td><span class="tier-pill" style="background:#f5f5f5;color:#888">T2</span></td><td>112 L</td><td>200 L</td><td>0 L</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /screen-popeyes -->
 
 <!-- ════════════════════════════════════════ TELA 4 — INSIGHTS -->
-<div class="screen" id="screen-insights">
+<div class="screen" id="screen-insights" style="display:none">
   <div class="screen-header">
     <h1>Insights</h1>
     <p>Principais padrões identificados no período Jun/2025 – Abr/2026</p>
   </div>
-  <div class="insights-grid">
-    <div class="insight-card featured">
-      <div class="insight-title">Popeyes gera 2.4× mais que BK por unidade</div>
-      <div class="insight-body">Média de <strong>224 L/mês</strong> vs <strong>93 L/mês</strong> do BK. 80% das lojas Popeyes estão no Tier 1 contra apenas 18% do BK. São modelos operacionais estruturalmente diferentes: Popeyes é quase 100% shopping, BK é misto (55% shop / 45% rua).</div>
+
+  <!-- Featured card -->
+  <div class="insight-featured">
+    <div class="insight-featured-label">● RESULTADO DO PERÍODO</div>
+    <div class="insight-featured-title">R$ 603k de potencial<br>não capturado em 11 meses.</div>
+    <div class="insight-featured-sub">SP e RJ sozinhos respondem por 64% do gap. Se cada loja subisse apenas 1 tier, o repasse mensal saltaria de R$ 149k para R$ 203k — um crescimento de 36% sem adicionar uma única unidade nova.</div>
+  </div>
+
+  <!-- Grupo 1: O que os dados revelam -->
+  <div class="insight-section-label">● O QUE OS DADOS REVELAM</div>
+  <div class="insight-cards-grid">
+    <div class="insight-new-card">
+      <div class="insight-new-num">01</div>
+      <div class="insight-new-content">
+      <div class="insight-new-title">PLK gera 2.4× mais por unidade que BKB</div>
+      <div class="insight-new-body">Média de 224 L/mês vs 93 L/mês. 80% das lojas Popeyes estão no Tier 1 contra apenas 18% do BKB. São modelos estruturalmente diferentes — Popeyes é 99% shopping, BKB é misto.</div>
+      </div>
     </div>
-    <div class="insight-card">
-      <div class="insight-icon">🏬</div>
-      <div class="insight-title">Formato de loja não explica volume no BKB</div>
-      <div class="insight-body">BKB Shopping = <strong>94 L/mês</strong> vs BKB Rua = <strong>91 L/mês</strong> — diferença de 3%, dentro do ruído estatístico. O driver real de volume é o estado e município, não o canal.</div>
+    <div class="insight-new-card">
+      <div class="insight-new-num">02</div>
+      <div class="insight-new-content">
+      <div class="insight-new-title">O segredo é mix — valor alto + volume consistente</div>
+      <div class="insight-new-body">RJ paga R$ 2,43/L — o maior do país — e tem 89 lojas BKB com gap médio de R$ 1.086/loja. Uma loja RJ bem operada vale mais que duas SP medianas. A expansão ideal combina estados com bom preço e alto volume.</div>
+      </div>
     </div>
-    <div class="insight-card">
-      <div class="insight-icon">❄️</div>
-      <div class="insight-title">Inverno é o vale — Jun/25 foi ramp-up</div>
-      <div class="insight-body">Jul–Ago são os meses mais fracos para todos. BKB cai <strong>~20%</strong>, PLK <strong>~15%</strong>. Jun/25 tem volume ~50% menor que Jul/25 — indica início de operação, não sazonalidade.</div>
+    <div class="insight-new-card">
+      <div class="insight-new-num">03</div>
+      <div class="insight-new-content">
+      <div class="insight-new-title">Sazonalidade é previsível — inverno é o vale</div>
+      <div class="insight-new-body">Jun–Ago recuam ~15–20% em todas as marcas e formatos. Jun/25 é atípico — ramp-up da operação, ~50% abaixo do normal. O padrão é consistente o suficiente para planejar coletas com antecedência.</div>
     </div>
-    <div class="insight-card">
-      <div class="insight-icon">📍</div>
-      <div class="insight-title">PR é o estado mais eficiente do BKB</div>
-      <div class="insight-body"><strong>155 L/mês</strong> — 2× a média de SP (75 L). Maringá concentra as maiores unidades BKB do país. Para PLK, PE lidera com <strong>320 L/mês</strong>, seguido de MG e PR.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-icon">📉</div>
-      <div class="insight-title">SP e RS puxam a média nacional para baixo</div>
-      <div class="insight-body">SP tem <strong>321 lojas BKB</strong> (47% do total) com apenas 75 L/mês — abaixo da mediana nacional. RS tem 34 lojas com 69 L/mês, pior estado. Qualquer plano de melhoria passa por SP.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-icon">🗺️</div>
-      <div class="insight-title">Sudeste concentra volume mas tem pior eficiência</div>
-      <div class="insight-body"><strong>542 unidades</strong> (70% do total) com 101 L/mês médios. Norte e Sul têm médias 30–40% maiores. Expansão nessas regiões tende a trazer unidades de tier mais alto.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-icon">🌎</div>
-      <div class="insight-title">Popeyes supera BK em todos os estados onde coexiste</div>
-      <div class="insight-body">Gap menor em PR (155 vs 245 L) e DF (102 vs 125 L). Gap maior em SP (75 vs 237 L) e PE (120 vs 320 L). Em 9 estados com PLK, resultado é consistente.</div>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- Grupo 2: Ações prioritárias -->
+  <div class="insight-section-label">● AÇÕES PRIORITÁRIAS</div>
+  <div class="insight-cards-grid">
+    <div class="insight-new-card">
+      <div class="insight-new-num">01</div>
+      <div class="insight-new-content">
+      <div class="insight-new-title">SP: foco imediato nas lojas T4</div>
+      <div class="insight-new-body">321 lojas BKB em SP com média de 75 L/mês — 47% do gap total. 10 lojas com menos de 10 L/mês. Recomendamos reunião com gerentes regionais para mapear causa raiz antes de qualquer ajuste operacional.</div>
+      </div>
+    </div>
+    <div class="insight-new-card">
+      <div class="insight-new-num">02</div>
+      <div class="insight-new-content">
+      <div class="insight-new-title">RJ: aumentar frequência de coleta</div>
+      <div class="insight-new-body">Com o maior preço por litro (R$ 2,43) e gap médio de R$ 1.086/loja, RJ tem o maior retorno potencial por visita adicional. Aumentar frequência de coleta pode capturar volume que hoje não está sendo coletado.</div>
+      </div>
+    </div>
+    <div class="insight-new-card">
+      <div class="insight-new-num">03</div>
+      <div class="insight-new-content">
+      <div class="insight-new-title">Anomalias T4 merecem investigação</div>
+      <div class="insight-new-body">Lojas com 2–6 L/mês não se explicam por sazonalidade. Duas hipóteses: operador não repassa volume correto — ou desvio interno, com óleo sendo vendido por fora antes da coleta. Ambas representam perda direta de receita para a Zamp.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grupo 3: Para avançar juntos -->
+  <div class="insight-section-label" style="margin-bottom:4px">● PARA AVANÇAR JUNTOS</div>
+  <div class="insight-section-desc">Dados que a Zamp pode compartilhar para enriquecer as próximas análises.</div>
+  <div class="insight-cards-grid">
+    <div class="insight-new-card">
+      <div class="insight-new-num">01</div>
+      <div class="insight-new-content">
+      <div class="insight-new-title">Volume de compra de óleo por loja</div>
+      <div class="insight-new-body">Com o volume de óleo comprado e o volume coletado, conseguimos calcular a taxa de aproveitamento real de cada unidade. É o dado mais direto para identificar desvio ou ineficiência operacional.</div>
+      </div>
+    </div>
+    <div class="insight-new-card">
+      <div class="insight-new-num">02</div>
+      <div class="insight-new-content">
+      <div class="insight-new-title">Refeições e consumidores por loja</div>
+      <div class="insight-new-body">Permite calcular a geração esperada de óleo por refeição e identificar lojas que estão muito abaixo do benchmark. Uma loja com alto fluxo e baixo volume coletado é um sinal de alerta imediato.</div>
+      </div>
+    </div>
+    <div class="insight-new-card">
+      <div class="insight-new-num">03</div>
+      <div class="insight-new-content">
+      <div class="insight-new-title">Calendário de promoções</div>
+      <div class="insight-new-body">Promoções de produtos fritos geram picos de consumo de óleo. Com o calendário conseguimos antecipar demanda, ajustar frequência de coleta e evitar acúmulo ou descarte irregular nas lojas.</div>
+    </div>
+  </div>
+
+</div><!-- /screen-insights -->
 
 <script>
 function showScreen(id, btn) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active');
+    s.style.display = 'none';
+  });
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('screen-' + id).classList.add('active');
+  const el = document.getElementById('screen-' + id);
+  el.classList.add('active');
+  el.style.display = 'block';
   btn.classList.add('active');
 }
 
@@ -885,7 +1340,8 @@ function showEstadoTip(evt, el) {
   tt.style.top  = (evt.clientY - tt.offsetHeight - 14) + 'px';
 }
 
-document.getElementById('estado_gap_html').addEventListener('mousemove', function(evt) {
+const _estadoEl = document.getElementById('estado_gap_html');
+if (_estadoEl) _estadoEl.addEventListener('mousemove', function(evt) {
   const tt = document.getElementById('estado-tt');
   if (tt.style.display === 'block') {
     tt.style.left = (evt.clientX - tt.offsetWidth / 2) + 'px';
@@ -1278,6 +1734,254 @@ estadoData.forEach(e => {
       </div>
     </div>`;
 });
+// ── BKB Charts ──────────────────────────────────────────────
+
+// Sazonalidade BKB
+new Chart(document.getElementById('bk_saz'), {
+  type:'line',
+  data:{
+    labels:months,
+    datasets:[
+      {label:'Shopping',data:[47,105,99,100,107,95,100,103,92,95,98],borderColor:'#8AA5FF',backgroundColor:'rgba(138,165,255,0.07)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#8AA5FF',pointBorderColor:'#fff',pointBorderWidth:1.5},
+      {label:'Rua',     data:[43,104,87,96,98,88,103,101,89,99,100], borderColor:'#c4ceff',backgroundColor:'rgba(196,206,255,0.07)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#c4ceff',pointBorderColor:'#fff',pointBorderWidth:1.5,borderDash:[4,3]}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},annotation:{annotations:{inverno:{type:'box',xMin:-0.5,xMax:2.5,backgroundColor:'rgba(100,140,255,0.13)',borderWidth:0,label:{content:'Inverno',display:true,color:'#6A8FD4',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},primavera:{type:'box',xMin:2.5,xMax:5.5,backgroundColor:'rgba(255,210,100,0.13)',borderWidth:0,label:{content:'Primavera',display:true,color:'#b08a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},verao:{type:'box',xMin:5.5,xMax:8.5,backgroundColor:'rgba(255,140,60,0.16)',borderWidth:0,label:{content:'Verão',display:true,color:'#c45a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},outono:{type:'box',xMin:8.5,xMax:10.5,backgroundColor:'rgba(130,150,175,0.11)',borderWidth:0,label:{content:'Outono',display:true,color:'#7A90A8',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}}}},
+    scales:{
+      y:{beginAtZero:true,ticks:{callback:v=>v+'L'},grid:{drawTicks:false,color:ctx=>ctx.index===ctx.chart.scales.y.ticks.length-1?'transparent':gridColor},border:{display:false}},
+      x:{grid:{color:gridColor,drawTicks:false},border:{display:false},ticks:{autoSkip:false,maxRotation:45}}
+    }
+  }
+});
+
+// Regional BKB
+const bkRegT12=[
+  {name:'Norte',        pct:86, n:6,  total:7,   city:'Ananindeua', cityVal:145, cityN:1},
+  {name:'Nordeste',     pct:68, n:54, total:80,  city:'Cabo de Sto. Agostinho', cityVal:176, cityN:1},
+  {name:'Centro-Oeste', pct:63, n:29, total:46,  city:'Várzea Grande', cityVal:188, cityN:1},
+  {name:'Sul',          pct:59, n:48, total:81,  city:'Maringá', cityVal:281, cityN:5},
+  {name:'Sudeste',      pct:37, n:176,total:475, city:'Nova Iguaçu', cityVal:191, cityN:5},
+];
+const bkRegT34=[
+  {name:'Sudeste',      pct:63, n:299,total:475, city:'Jandira', cityVal:6,  cityN:1},
+  {name:'Sul',          pct:41, n:33, total:81,  city:'Passo Fundo', cityVal:19, cityN:2},
+  {name:'Centro-Oeste', pct:37, n:17, total:46,  city:'Três Lagoas', cityVal:25, cityN:1},
+  {name:'Nordeste',     pct:32, n:26, total:80,  city:'Campina Grande', cityVal:62, cityN:1},
+  {name:'Norte',        pct:14, n:1,  total:7,   city:'Belém', cityVal:141, cityN:6},
+];
+
+const maxCityT12 = 300;
+const maxCityT34 = 150;
+
+function buildBkReg(elId,data,color,maxCity,cityLabel){
+  const el=document.getElementById(elId);
+  data.forEach(r=>{
+    const cityPct = Math.min((r.cityVal/maxCity*100),100).toFixed(1);
+    el.innerHTML+=`<div style="margin-bottom:12px">
+      <div class="reg-row">
+        <span class="reg-name">${r.name}</span>
+        <div class="reg-bars">
+          <div class="reg-bar-line">
+            <div class="reg-track" data-uf="${r.name}" data-uf="${r.name}" data-real="${r.n} de ${r.total} lojas em T1+T2" data-gap="Melhor cidade: ${r.city} · ${r.cityVal}L/mês" data-gloja="${r.n} de ${r.total} (${r.pct}%)" data-n=""
+                 onmouseenter="showEstadoTip(event,this)" onmouseleave="hideEstadoTip()">
+              <div class="reg-fill" style="width:${r.pct}%;background:${color}"></div>
+            </div>
+            <span class="reg-val">${r.pct}%</span>
+          </div>
+          <div class="reg-bar-line" style="margin-top:3px">
+            <div style="flex:1;height:5px;border-radius:3px;background:rgba(0,0,0,0.05);overflow:hidden">
+              <div style="height:100%;width:${cityPct}%;background:${color};opacity:0.5;border-radius:3px"></div>
+            </div>
+            <span style="font-size:10px;color:var(--text-mid);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:130px;font-weight:400;text-align:right">${r.city} · ${r.cityVal}L/mês</span>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  });
+}
+buildBkReg('bk_reg_t12',bkRegT12,'#8AA5FF',maxCityT12,'melhor');
+buildBkReg('bk_reg_t34',bkRegT34,'#c4ceff',maxCityT34,'pior');
+
+// BKB Captura realizada vs potencial
+const bkPct=[35.3,81.6,73.9,77.1,80.4,72.0,80.0,79.8,71.5,76.1,77.2];
+new Chart(document.getElementById('bk_repasse'),{
+  type:'bar',
+  data:{labels:months,datasets:[
+    {type:'bar',label:'Realizado',data:[54925,126818,114810,119826,124943,111925,124324,123992,111162,118238,119942],backgroundColor:'#8AA5FF',stack:'s',borderRadius:0,order:2},
+    {type:'bar',label:'Gap',data:[100536,28643,40651,35635,30518,43536,31136,31469,44299,37223,35519],backgroundColor:'#c4ceff',stack:'s',borderRadius:4,order:2},
+    {type:'line',label:'% realizado',data:[54925,126818,114810,119826,124943,111925,124324,123992,111162,118238,119942],borderColor:'#5577dd',borderWidth:2,pointBackgroundColor:'#5577dd',pointBorderColor:'#5577dd',pointBorderWidth:0,pointRadius:3,tension:0.3,fill:'origin',backgroundColor:'rgba(85,119,221,0.08)',yAxisID:'y',order:0}
+  ]},
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{mode:'index',callbacks:{label:ctx=>{
+      if(ctx.dataset.label==='% realizado') return ` % realizado: ${bkPct[ctx.dataIndex]}%`;
+      return ` ${ctx.dataset.label}: R$ ${ctx.parsed.y.toLocaleString('pt-BR')}`;
+    }},annotation:{annotations:{inverno:{type:'box',xMin:-0.5,xMax:2.5,backgroundColor:'rgba(100,140,255,0.13)',borderWidth:0,label:{content:'Inverno',display:true,color:'#6A8FD4',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},primavera:{type:'box',xMin:2.5,xMax:5.5,backgroundColor:'rgba(255,210,100,0.13)',borderWidth:0,label:{content:'Primavera',display:true,color:'#b08a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},verao:{type:'box',xMin:5.5,xMax:8.5,backgroundColor:'rgba(255,140,60,0.16)',borderWidth:0,label:{content:'Verão',display:true,color:'#c45a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},outono:{type:'box',xMin:8.5,xMax:10.5,backgroundColor:'rgba(130,150,175,0.11)',borderWidth:0,label:{content:'Outono',display:true,color:'#7A90A8',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}}}}},
+    scales:{
+      y:{stacked:true,beginAtZero:true,suggestedMax:170000,ticks:{callback:v=>'R$ '+(v/1000).toFixed(0)+'k'},grid:{drawTicks:false,color:ctx=>ctx.index===ctx.chart.scales.y.ticks.length-1?'transparent':gridColor},border:{display:false}},
+      x:{stacked:true,grid:{display:false},border:{display:false},ticks:{autoSkip:false,maxRotation:45}}
+    }
+  }
+});
+// ── PLK Charts ──────────────────────────────────────────────
+
+// Sazonalidade PLK
+new Chart(document.getElementById('plk_saz'), {
+  type:'line',
+  data:{
+    labels:months,
+    datasets:[
+      {label:'PLK Shop',data:[126,253,235,267,248,206,236,248,229,231,186],borderColor:'#FFBA86',backgroundColor:'rgba(255,186,134,0.08)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#FFBA86',pointBorderColor:'#fff',pointBorderWidth:1.5},
+      {label:'PLK Rua', data:[0,500,200,356,356,167,367,189,278,222,311], borderColor:'#FFD4A8',backgroundColor:'rgba(255,212,168,0.08)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#FFD4A8',pointBorderColor:'#fff',pointBorderWidth:1.5,borderDash:[4,3]}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},annotation:{annotations:{inverno:{type:'box',xMin:-0.5,xMax:2.5,backgroundColor:'rgba(100,140,255,0.13)',borderWidth:0,label:{content:'Inverno',display:true,color:'#6A8FD4',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},primavera:{type:'box',xMin:2.5,xMax:5.5,backgroundColor:'rgba(255,210,100,0.13)',borderWidth:0,label:{content:'Primavera',display:true,color:'#b08a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},verao:{type:'box',xMin:5.5,xMax:8.5,backgroundColor:'rgba(255,140,60,0.16)',borderWidth:0,label:{content:'Verão',display:true,color:'#c45a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},outono:{type:'box',xMin:8.5,xMax:10.5,backgroundColor:'rgba(130,150,175,0.11)',borderWidth:0,label:{content:'Outono',display:true,color:'#7A90A8',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}}}},
+    scales:{
+      y:{beginAtZero:true,ticks:{callback:v=>v+'L',stepSize:100},grid:{drawTicks:false,color:ctx=>ctx.index===ctx.chart.scales.y.ticks.length-1?'transparent':gridColor},border:{display:false}},
+      x:{grid:{color:gridColor,drawTicks:false},border:{display:false},ticks:{autoSkip:false,maxRotation:45}}
+    }
+  }
+});
+
+// Regional PLK
+const plkRegT12=[
+  {name:'Sul',          pct:100,n:7, total:7,  city:'S. J. Pinhais', cityVal:399, cityN:1},
+  {name:'Nordeste',     pct:100,n:8, total:8,  city:'Recife', cityVal:321, cityN:3},
+  {name:'Sudeste',      pct:91, n:61,total:67, city:'Santo André', cityVal:404, cityN:1},
+  {name:'Centro-Oeste', pct:80, n:4, total:5,  city:'Ap. de Goiânia', cityVal:199, cityN:1},
+];
+const plkRegT34=[
+  {name:'Centro-Oeste', pct:20,n:1, total:5,  city:'Brasília', cityVal:125, cityN:2},
+  {name:'Sudeste',      pct:9, n:6, total:67, city:'Votorantim', cityVal:49, cityN:1},
+  {name:'Sul',          pct:0, n:0, total:7,  city:'Londrina', cityVal:160, cityN:2},
+  {name:'Nordeste',     pct:0, n:0, total:8,  city:'João Pessoa', cityVal:180, cityN:1},
+];
+
+const maxPlkT12 = 450;
+const maxPlkT34 = 200;
+
+function buildPlkReg(elId,data,color,maxCity){
+  const el=document.getElementById(elId);
+  data.forEach(r=>{
+    const cityPct = Math.min((r.cityVal/maxCity*100),100).toFixed(1);
+    el.innerHTML+=`<div style="margin-bottom:12px">
+      <div class="reg-row">
+        <span class="reg-name">${r.name}</span>
+        <div class="reg-bars">
+          <div class="reg-bar-line">
+            <div class="reg-track" data-uf="${r.name}" data-uf="${r.name}" data-real="${r.n} de ${r.total} lojas em T1+T2" data-gap="Melhor cidade: ${r.city} · ${r.cityVal}L/mês" data-gloja="${r.n} de ${r.total} (${r.pct}%)" data-n=""
+                 onmouseenter="showEstadoTip(event,this)" onmouseleave="hideEstadoTip()">
+              <div class="reg-fill" style="width:${r.pct}%;background:${color}"></div>
+            </div>
+            <span class="reg-val">${r.pct}%</span>
+          </div>
+          <div class="reg-bar-line" style="margin-top:3px">
+            <div style="flex:1;height:5px;border-radius:3px;background:rgba(0,0,0,0.05);overflow:hidden">
+              <div style="height:100%;width:${cityPct}%;background:${color};opacity:0.5;border-radius:3px"></div>
+            </div>
+            <span style="font-size:10px;color:var(--text-mid);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:130px;font-weight:400;text-align:right">${r.city} · ${r.cityVal}L/mês</span>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  });
+}
+buildPlkReg('plk_reg_t12',plkRegT12,'#FFBA86',maxPlkT12);
+buildPlkReg('plk_reg_t34',plkRegT34,'#FFD4A8',maxPlkT34);
+
+// PLK Captura realizada vs potencial
+const plkPct=[51.8,103.8,96.4,110.3,102.3,84.0,97.9,100.8,94.5,94.1,76.8];
+const plkReal=[19775,39580,36791,42068,39025,32027,37338,38453,36033,35910,29291];
+const plkGap=[18372,0,1355,0,0,6120,808,0,2113,2236,8855];
+new Chart(document.getElementById('plk_repasse'),{
+  type:'bar',
+  data:{labels:months,datasets:[
+    {type:'bar',label:'Realizado',data:plkReal,backgroundColor:'#FFBA86',stack:'s',borderRadius:0,order:2},
+    {type:'bar',label:'Gap',data:plkGap,backgroundColor:'#FFD4A8',stack:'s',borderRadius:4,order:2},
+    {type:'line',label:'% realizado',data:plkReal.map((v,i)=>v+plkGap[i]>0?v:0),borderColor:'#b35a00',borderWidth:2,pointBackgroundColor:'#b35a00',pointBorderColor:'#b35a00',pointBorderWidth:0,pointRadius:3,tension:0.3,fill:'origin',backgroundColor:'rgba(179,90,0,0.08)',yAxisID:'y',order:0}
+  ]},
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{mode:'index',callbacks:{label:ctx=>{
+      if(ctx.dataset.label==='% realizado') return ` % realizado: ${plkPct[ctx.dataIndex]}%`;
+      return ` ${ctx.dataset.label}: R$ ${ctx.parsed.y.toLocaleString('pt-BR')}`;
+    }},annotation:{annotations:{inverno:{type:'box',xMin:-0.5,xMax:2.5,backgroundColor:'rgba(100,140,255,0.13)',borderWidth:0,label:{content:'Inverno',display:true,color:'#6A8FD4',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},primavera:{type:'box',xMin:2.5,xMax:5.5,backgroundColor:'rgba(255,210,100,0.13)',borderWidth:0,label:{content:'Primavera',display:true,color:'#b08a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},verao:{type:'box',xMin:5.5,xMax:8.5,backgroundColor:'rgba(255,140,60,0.16)',borderWidth:0,label:{content:'Verão',display:true,color:'#c45a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},outono:{type:'box',xMin:8.5,xMax:10.5,backgroundColor:'rgba(130,150,175,0.11)',borderWidth:0,label:{content:'Outono',display:true,color:'#7A90A8',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}}}}},
+    scales:{
+      y:{stacked:true,beginAtZero:true,suggestedMax:50000,ticks:{callback:v=>'R$ '+(v/1000).toFixed(0)+'k'},grid:{drawTicks:false,color:ctx=>ctx.index===ctx.chart.scales.y.ticks.length-1?'transparent':gridColor},border:{display:false}},
+      x:{stacked:true,grid:{display:false},border:{display:false},ticks:{autoSkip:false,maxRotation:45}}
+    }
+  }
+});
+
+
+function buildEstadoGap(elId, data, gapTotal, colorReal, colorGap, colorLine) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  const maxTotal = Math.max(...data.map(e => e.real + e.gap));
+  data.forEach(e => {
+    const realPct  = (e.real / maxTotal * 100).toFixed(1);
+    const gapPct   = (e.gap  / maxTotal * 100).toFixed(1);
+    const pctTotal = Math.round(e.gap / gapTotal * 100);
+    const gapLoja  = Math.round(e.gap / e.n).toLocaleString('pt-BR');
+    const gapFmt   = 'R$ ' + (e.gap/1000).toFixed(0) + 'k';
+    el.innerHTML += `<div style="margin-bottom:11px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="display:flex;align-items:center;gap:6px;width:140px;flex-shrink:0">
+          <span style="font-size:12px;font-weight:600;color:var(--text);width:26px">${e.uf}</span>
+          <span style="display:inline-block;font-size:10px;font-weight:400;font-family:'Inter',sans-serif;padding:2px 7px;border-radius:20px;background:#f1e4da;color:#b35a00;white-space:nowrap">R$${e.preco.toFixed(2)}/L</span>
+        </div>
+        <div style="flex:1;position:relative;height:14px;border-radius:4px;overflow:hidden;background:rgba(0,0,0,0.06)"
+             data-uf="${e.uf}" data-real="R$ ${e.real.toLocaleString('pt-BR')}" data-gap="${gapFmt}" data-gloja="${gapLoja}" data-n="${e.n}" data-pct="${pctTotal}"
+             onmouseenter="showEstadoTip(event,this)" onmouseleave="hideEstadoTip()">
+          <div style="position:absolute;left:0;top:0;height:100%;width:${realPct}%;background:${colorReal}"></div>
+          <div style="position:absolute;left:${realPct}%;top:0;height:100%;width:${gapPct}%;background:${colorGap};border-radius:0 4px 4px 0"></div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:3px">
+        <div style="width:140px;flex-shrink:0"></div>
+        <div style="flex:1;height:5px;border-radius:3px;background:rgba(0,0,0,0.05);overflow:hidden">
+          <div style="height:100%;width:${pctTotal}%;background:${colorLine};border-radius:3px;opacity:0.7"></div>
+        </div>
+        <span style="font-size:10px;color:${colorLine};font-weight:500;width:28px;flex-shrink:0;text-align:right">${pctTotal}%</span>
+      </div>
+    </div>`;
+  });
+}
+
+// ── BKB Desperdício por estado ───────────────────────────────
+const bkEstadoData = [
+  {uf:'SP', real:479305, gap:276036, n:321, preco:2.02},
+  {uf:'RJ', real:216294, gap:96647,  n:89,  preco:2.43},
+  {uf:'MG', real:112009, gap:40465,  n:51,  preco:2.02},
+  {uf:'RS', real:37422,  gap:28962,  n:34,  preco:1.62},
+  {uf:'PR', real:133158, gap:22575,  n:43,  preco:2.02},
+  {uf:'GO', real:40386,  gap:19341,  n:23,  preco:1.62},
+  {uf:'BA', real:41894,  gap:18268,  n:18,  preco:2.02},
+  {uf:'CE', real:27394,  gap:13361,  n:16,  preco:1.62},
+  {uf:'DF', real:28421,  gap:12144,  n:14,  preco:2.02},
+  {uf:'PE', real:29565,  gap:12042,  n:17,  preco:1.46},
+  {uf:'ES', real:23108,  gap:11777,  n:14,  preco:2.02},
+];
+const bkGapTotal = 580768;
+buildEstadoGap('bk_estado_gap_html', bkEstadoData, bkGapTotal, '#8AA5FF', '#c4ceff', '#5577dd');
+
+// ── PLK Desperdício por estado ───────────────────────────────
+const plkEstadoData = [
+  {uf:'SP', real:241854, gap:9985,  n:51, preco:2.02},
+  {uf:'RJ', real:33704,  gap:6879,  n:10, preco:2.43},
+  {uf:'BA', real:11594,  gap:1705,  n:3,  preco:2.02},
+  {uf:'GO', real:7808,   gap:1513,  n:3,  preco:1.62},
+  {uf:'PR', real:34279,  gap:1322,  n:7,  preco:2.02},
+  {uf:'DF', real:5009,   gap:538,   n:2,  preco:2.02},
+];
+const plkGapTotal = 21946;
+buildEstadoGap('plk_estado_gap_html', plkEstadoData, plkGapTotal, '#FFBA86', '#FFD4A8', '#b35a00');
+
+
 </script>
 </body>
 </html>
