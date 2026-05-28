@@ -516,12 +516,7 @@
     font-size: 13px;
     color: var(--text-mid);
   }
-  /* ══════════════════════════════════════
-     MOBILE — max 768px
-     ══════════════════════════════════════ */
   @media (max-width: 768px) {
-
-    /* Nav */
     nav {
       padding: 0 16px;
       gap: 16px;
@@ -533,57 +528,26 @@
     .nav-brand { font-size: 14px; margin-right: 8px; }
     .nav-tab   { font-size: 12px; white-space: nowrap; flex-shrink: 0; }
     .nav-meta  { display: none; }
-
-    /* Screen padding */
     .screen { display: none; padding: 20px 16px; }
     .screen.active { display: block; }
-
-    /* KPI row — 2 colunas */
-    .kpi-row {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
     .kpi-value { font-size: 22px; }
-
-    /* Tier row — 2 colunas */
-    .tier-row {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Charts — single column */
-    .chart-row.two {
-      grid-template-columns: 1fr;
-    }
-
-    /* Screen header */
+    .tier-row { grid-template-columns: repeat(2, 1fr); }
+    .chart-row.two { grid-template-columns: 1fr; }
     .screen-header h1 { font-size: 22px; }
-
-    /* Insights grid — single column */
     .insight-cards-grid { grid-template-columns: 1fr; }
     .insight-featured { padding: 28px 24px; }
     .insight-featured-title { font-size: 26px; }
-
-    /* Regional bars label */
     .reg-row { grid-template-columns: 90px 1fr; }
     .reg-name { font-size: 12px; }
-
-    /* Tables — scroll horizontal */
     .data-table th,
     .data-table td { font-size: 10px; padding: 5px 5px; }
-
-    /* Chart heights — slightly shorter on mobile */
     .chart-inner[style*="height:320px"] { height: 240px !important; }
     .chart-inner[style*="height:300px"] { height: 220px !important; }
     .chart-inner[style*="height:260px"] { height: 200px !important; }
     .chart-inner[style*="height:240px"] { height: 200px !important; }
-
-    /* Estado bars */
-    #estado_gap_html > div {
-      flex-wrap: wrap;
-    }
-    #estado_gap_html .state-label-col {
-      width: 100% !important;
-      margin-bottom: 4px;
-    }
+    #estado_gap_html > div { flex-wrap: wrap; }
+    #estado_gap_html .state-label-col { width: 100% !important; margin-bottom: 4px; }
   }
 </style>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzY0IiBoZWlnaHQ9IjM4MCIgdmlld0JveD0iMCAwIDM2NCAzODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik04MS4wODAxIDY5Ljk0MDFDNTEuMjMyOCAxMDAuMTQgMzIuOCAxNDEuNjQ0IDMyLjggMTg3LjQ2N0MzMi44IDIzMy4yOSA1MS4yMzI4IDI3NC43OTQgODEuMDgwMSAzMDQuOTk0QzMzLjY5MjUgMjg3LjAwMiAwIDI0MS4xNjggMCAxODcuNDY3QzAgMTMzLjc2NiAzMy42OTI1IDg3LjkzMjEgODEuMDgwMSA2OS45NDAxWiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNMzYxLjQ4NSAxNDguMDEyQzM1MC45ODUgMTA2Ljg3MiAzMjQuODk1IDY5LjY5NzcgMjg1LjYxNyA0Ni4wOTc2QzI0Ni4zNDkgMjIuNDk3NCAyMDEuMjY0IDE2LjkyMjQgMTYwLjAyNSAyNi45NDg2QzE5OS44NDMgLTQuNDE5MTEgMjU2LjQ4NiAtOS42OTY2MyAzMDIuNTE4IDE3Ljk2OTFDMzQ4LjU1IDQ1LjYyMzggMzcwLjQ4NyA5OC4xMDE2IDM2MS40ODUgMTQ4LjAwMVYxNDguMDEyWiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNMzYxLjQ4NSAyMzEuMTMxQzM1MC45ODUgMjcyLjI3MiAzMjQuODk1IDMwOS40NDYgMjg1LjYxNyAzMzMuMDQ2QzI0Ni4zNDkgMzU2LjY0NiAyMDEuMjY0IDM2Mi4yMjEgMTYwLjAyNSAzNTIuMTk1QzE5OS44NDMgMzgzLjU2MyAyNTYuNDg2IDM4OC44NCAzMDIuNTE4IDM2MS4xNzVDMzQ4LjU1IDMzMy41MiAzNzAuNDg3IDI4MS4wNDIgMzYxLjQ4NSAyMzEuMTQyVjIzMS4xMzFaIiBmaWxsPSIjMjIyMjIyIi8+Cjwvc3ZnPgo=">
@@ -593,7 +557,7 @@
 <div class="estado-tooltip" id="estado-tt"></div>
 
 <div style="background:#fff;border-bottom:1px solid rgba(0,0,0,0.07);padding:10px 40px;display:flex;align-items:center;gap:12px">
-  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTM4NiIgaGVpZ2h0PSIzODAiIHZpZXdCb3g9IjAgMCAxMzg2IDM4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYxOS41MzYgMjIyLjgyM0w1MzguMzEzIDU4LjYxMzdINDkwLjQzVjMxNi41NzRINTE2LjI4OVY3Mi40NzQxTDU5My4wOTQgMjMxLjEzMUg2NDYuMDY3TDcyMi43NzMgNzIuNDc0MVYzMTYuNTc0SDc0OC42MzJWNTguNjEzN0g3MDAuNzQ5TDYxOS41MjUgMjIyLjgyM0g2MTkuNTM2WiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNOTQxLjg2OSAyMTUuNjUxQzk0MS44NjkgMjM5LjM5NSA5MzUuNTg5IDI1OC40IDkyMy4wNCAyNzIuNjQ2QzkxMC40OTEgMjg2LjkwMyA4OTMuNTU2IDI5NC4wMSA4NzIuMjgxIDI5NC4wMUM4NTUuNzg3IDI5NC4wMSA4NDMuMTE3IDI4OC43MzIgODM0LjI0NyAyNzguMTc3QzgyNS4zNjcgMjY3LjYyMiA4MjAuOTM4IDI1Mi40NTEgODIwLjkzOCAyMzIuNjYzVjExNS44OTZINzk1LjgzOVYyMzcuNDExQzc5NS44MzkgMjYyLjQ4OCA4MDEuNjY4IDI4Mi42MDcgODEzLjMzNiAyOTcuNzc4QzgyNC45OTIgMzEyLjk1IDg0Mi44NjMgMzIwLjU0MSA4NjYuOTU5IDMyMC41NDFDODg2LjczNiAzMjAuNTQxIDkwNy45NjggMzE0LjQ5MiA5MjEuMjExIDMwMy40ODVDOTM0LjQ1NCAyOTIuNDc4IDkzNy45MTQgMjg2LjY4MyA5NDEuODY5IDI3Ny40MzlWMzE2LjU3NEg5NjcuMzQzVjExNS45MDdIOTQxLjg2OVYyMTUuNjUxWiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNMTE0OS4yMyAyMjIuNTE0QzExMzcuNyAyMTQuOTg5IDExMjMuMDUgMjA5LjY1NiAxMTA1LjMxIDIwNi40ODNMMTA3Ny45NCAyMDEuMzM4QzEwNjIuMjIgMTk4LjQ0IDEwNTEuMjUgMTk0LjY3MiAxMDQ1LjA1IDE5MC4wNjdDMTAzOC44MyAxODUuNDUgMTAzNS43MyAxNzguNTMxIDEwMzUuNzMgMTY5LjI4N0MxMDM1LjczIDE1OC43MzIgMTA0MC4wMyAxNTAuNTU3IDEwNDguNjUgMTQ0LjczOUMxMDU3LjI3IDEzOC45NDQgMTA2OC42NyAxMzYuMDM1IDEwODIuODcgMTM2LjAzNUMxMTAwLjEgMTM2LjAzNSAxMTEzLjU0IDE0MC4wMDIgMTEyMy4xOSAxNDcuOTEzQzExMzIuOCAxNTUuODIzIDExMzcuODggMTY2LjY0MyAxMTM4LjQgMTgwLjM3MUgxMTY0LjYzQzExNjMuNjIgMTU5LjAwOCAxMTU2LjIxIDE0Mi4yMzggMTE0Mi4zOSAxMzAuMDk3QzExMjguNTcgMTE3Ljk1NSAxMTA5LjI0IDExMS44OTUgMTA4NC4zOSAxMTEuODk1QzEwNjIuMzMgMTExLjg5NSAxMDQ0LjQ2IDExNi44NDIgMTAzMC43NyAxMjYuNzM2QzEwMTcuMDcgMTM2LjYzIDEwMTAuMjQgMTUwLjk1MyAxMDEwLjI0IDE2OS42ODRDMTAxMC4yNCAxODcuMzY3IDEwMTUuMzEgMjAwLjAyNyAxMDI1LjQ2IDIwNy42ODRDMTAzNS41OSAyMTUuMzQyIDEwNTAuMTcgMjIxLjAwNSAxMDY5LjE5IDIyNC43MDdMMTA5OC44NSAyMzAuMjQ5QzExMTQuODIgMjMzLjQxMSAxMTI1Ljg1IDIzNy4zNzcgMTEzMS45MiAyNDIuMTI2QzExMzguMDIgMjQ2Ljg3NSAxMTQxLjA1IDI1My44NzEgMTE0MS4wNSAyNjMuMTA0QzExNDEuMDUgMjczLjkyMyAxMTM2Ljc0IDI4Mi4xNzYgMTEyOC4xMiAyODcuODVDMTExOS41MSAyOTMuNTI0IDExMDcuNzIgMjk2LjM1NSAxMDkyLjc1IDI5Ni4zNTVDMTA3NS4yNiAyOTYuMzU1IDEwNjAuOTMgMjkyLjM0NSAxMDQ5Ljc3IDI4NC4yOEMxMDM4LjYxIDI3Ni4yMzcgMTAzMi45MiAyNjUuMzUxIDEwMzIuNjYgMjUxLjYyM0gxMDA2LjhDMTAwNy4zMSAyNzIuNzMzIDEwMTUuMjMgMjg5LjQ5MSAxMDMwLjU4IDMwMS44OTdDMTA0NS45MSAzMTQuMzA0IDEwNjYuMTMgMzIwLjQ5NiAxMDkxLjIzIDMyMC40OTZDMTExMy44IDMyMC40OTYgMTEzMS45OSAzMTUuNTQ4IDExNDUuOCAzMDUuNjU0QzExNTkuNjIgMjk1Ljc2MSAxMTY2LjU0IDI4MS40MzcgMTE2Ni41NCAyNjIuNzA3QzExNjYuNTQgMjQzLjk3NyAxMTYwLjc3IDIzMC4wNSAxMTQ5LjI0IDIyMi41MjVMMTE0OS4yMyAyMjIuNTE0WiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNMTM3OC4zNyAyOTAuMDA5QzEzNzQuNTYgMjkwLjAwOSAxMzcxLjU5IDI4OS40MTQgMTM3MC4wNiAyODcuNTYzQzEzNjguNTUgMjg1LjcxMiAxMzY4LjA5IDI4Mi4wOTggMTM2OC4wOSAyNzcuMzVWMTg5Ljg3OUMxMzY4LjA5IDEzNy44ODYgMTMzOS45NSAxMTEuODk1IDEyODMuNjcgMTExLjg5NUMxMjU5LjU3IDExMS44OTUgMTI0MC4xMyAxMTguNDI5IDEyMjUuMyAxMzEuNDk2QzEyMTAuNDcgMTQ0LjU1MiAxMjAyLjUzIDE2Mi45NjMgMTIwMS41MiAxODYuNzE3SDEyMjcuMzhDMTIzMC42NyAxNTIuNjgzIDEyNTAuMDYgMTM1LjY2MSAxMjg1LjU2IDEzNS42NjFDMTMwNC41NyAxMzUuNjYxIDEzMTguODkgMTQwLjM1NCAxMzI4LjUzIDE0OS43MTlDMTMzOC4xNiAxNTkuMDk2IDEzNDIuOTkgMTcxLjY4OSAxMzQyLjk5IDE4Ny41MjJDMTM0Mi45OSAxOTMuODQ2IDEzMzcuMzQgMTk3Ljg3OCAxMzI2LjA2IDE5OS41OTdDMTMxNC43NyAyMDEuMzE2IDEyOTcuNDcgMjAyLjQ0IDEyNzQuMTYgMjAyLjk1OEMxMjUxLjM0IDIwMy40ODYgMTIzMy4wOSAyMDguMzAxIDEyMTkuMzkgMjE3LjQxM0MxMjA1LjY5IDIyNi41MjUgMTE5OC44NiAyNDAuNDQgMTE5OC44NiAyNTkuMTgxQzExOTguODYgMjc3LjkyMyAxMjA1LjI1IDI5Mi44MTkgMTIxOC4wNiAzMDMuOTE0QzEyMzAuODYgMzE0Ljk5OCAxMjQ3LjQxIDMyMC41MjkgMTI2Ny42OCAzMjAuNTI5QzEyODUuNDIgMzIwLjUyOSAxMzAzLjQ3IDMxNy4wNTggMTMxNy4zMSAzMDguODVDMTMzMS41IDMwMC40MjEgMTM0MS41NiAyODUuOTk5IDEzNDMuMzYgMjc3LjM5NFYyOTIuMDkyQzEzNDMuMzYgMzA1LjYxIDEzNTQuMzQgMzE2LjU4NCAxMzY3Ljg2IDMxNi41ODRIMTM4NS45NlYyOTAuMDc1SDEzNzguMzZWMjkwLjAzMUwxMzc4LjM3IDI5MC4wMDlaTTEzNDMgMjQ0LjA5OEMxMzQzIDI1NC4zODkgMTMzOS41MiAyNjMuNSAxMzMyLjU0IDI3MS40MTFDMTMyNS41NiAyNzkuMzIyIDEzMTYuNTEgMjg1LjQwNCAxMzA1LjM1IDI4OS42MTNDMTI5NC4xOSAyOTMuODQzIDEyODIuNzkgMjk2LjA5MSAxMjcxLjEzIDI5Ni4zNDRDMTI1Ni45MyAyOTYuMzQ0IDEyNDUuNTIgMjkzLjE4MiAxMjM2LjkxIDI4Ni44MzZDMTIyOC4yOSAyODAuNTEyIDEyMjMuOTggMjcxLjQgMTIyMy45OCAyNTkuNTIzQzEyMjMuOTggMjM5Ljk5OSAxMjM4LjE5IDIyOC45MTUgMTI2Ni41NyAyMjYuMjcxQzEyNjYuNTcgMjI2LjI3MSAxMzA1LjYgMjIzLjYzOCAxMzA5LjkxIDIyMy4xMDlDMTMwOS45MSAyMjMuMTA5IDEzMjYuMiAyMjIuMTE3IDEzMzguNzYgMjIwLjQ5OEMxMzQxIDIyMC4yIDEzNDMgMjIxLjk2MyAxMzQzIDIyNC4yMzNWMjQ0LjA4N1YyNDQuMDk4WiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNODEuMDgwMSA2OS45NEM1MS4yMzI4IDEwMC4xNCAzMi44IDE0MS42NDQgMzIuOCAxODcuNDY3QzMyLjggMjMzLjI5IDUxLjIzMjggMjc0Ljc5NCA4MS4wODAxIDMwNC45OTRDMzMuNjkyNSAyODcuMDAyIDAgMjQxLjE2OCAwIDE4Ny40NjdDMCAxMzMuNzY2IDMzLjY5MjUgODcuOTMyMSA4MS4wODAxIDY5Ljk0WiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNMzYxLjQ4NSAxNDguMDEyQzM1MC45ODUgMTA2Ljg3MiAzMjQuODk1IDY5LjY5NzcgMjg1LjYxNyA0Ni4wOTc2QzI0Ni4zNDkgMjIuNDk3NCAyMDEuMjY0IDE2LjkyMjQgMTYwLjAyNSAyNi45NDg2QzE5OS44NDMgLTQuNDE5MTEgMjU2LjQ4NiAtOS42OTY2MyAzMDIuNTE4IDE3Ljk2OTFDMzQ4LjU1IDQ1LjYyMzggMzcwLjQ4NyA5OC4xMDE2IDM2MS40ODUgMTQ4LjAwMVYxNDguMDEyWiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNMzYxLjQ4NSAyMzEuMTMxQzM1MC45ODUgMjcyLjI3MiAzMjQuODk1IDMwOS40NDYgMjg1LjYxNyAzMzMuMDQ2QzI0Ni4zNDkgMzU2LjY0NiAyMDEuMjY0IDM2Mi4yMjEgMTYwLjAyNSAzNTIuMTk1QzE5OS44NDMgMzgzLjU2MyAyNTYuNDg2IDM4OC44NCAzMDIuNTE4IDM2MS4xNzVDMzQ4LjU1IDMzMy41MiAzNzAuNDg3IDI4MS4wNDIgMzYxLjQ4NSAyMzEuMTQyVjIzMS4xMzFaIiBmaWxsPSIjMjIyMjIyIi8+Cjwvc3ZnPgo=" alt="Musa" style="height:20px;display:block">
+  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTM4NiIgaGVpZ2h0PSIzODAiIHZpZXdCb3g9IjAgMCAxMzg2IDM4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYxOS41MzYgMjIyLjgyM0w1MzguMzEzIDU4LjYxMzdINDkwLjQzVjMxNi41NzRINTE2LjI4OVY3Mi40NzQxTDU5My4wOTQgMjMxLjEzMUg2NDYuMDY3TDcyMi43NzMgNzIuNDc0MVYzMTYuNTc0SDc0OC42MzJWNTguNjEzN0g3MDAuNzQ5TDYxOS41MjUgMjIyLjgyM0g2MTkuNTM2WiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNOTQxLjg2OSAyMTUuNjUxQzk0MS44NjkgMjM5LjM5NSA5MzUuNTg5IDI1OC40IDkyMy4wNCAyNzIuNjQ2QzkxMC40OTEgMjg2LjkwMyA4OTMuNTU2IDI5NC4wMSA4NzIuMjgxIDI5NC4wMUM4NTUuNzg3IDI5NC4wMSA4NDMuMTE3IDI4OC43MzIgODM0LjI0NyAyNzguMTc3QzgyNS4zNjcgMjY3LjYyMiA4MjAuOTM4IDI1Mi40NTEgODIwLjkzOCAyMzIuNjYzVjExNS44OTZINzk1LjgzOVYyMzcuNDExQzc5NS44MzkgMjYyLjQ4OCA4MDEuNjY4IDI4Mi42MDcgODEzLjMzNiAyOTcuNzc4QzgyNC45OTIgMzEyLjk1IDg0Mi44NjMgMzIwLjU0MSA4NjYuOTU5IDMyMC41NDFDODg2LjczNiAzMjAuNTQxIDkwNy45NjggMzE0LjQ5MiA5MjEuMjExIDMwMy40ODVDOTM0LjQ1NCAyOTIuNDc4IDkzNy45MTQgMjg2LjY4MyA5NDEuODY5IDI3Ny40MzlWMzE2LjU3NEg5NjcuMzQzVjExNS45MDdIOTQxLjg2OVYyMTUuNjUxWiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNMTE0OS4yMyAyMjIuNTE0QzExMzcuNyAyMTQuOTg5IDExMjMuMDUgMjA5LjY1NiAxMTA1LjMxIDIwNi40ODNMMTA3Ny45NCAyMDEuMzM4QzEwNjIuMjIgMTk4LjQ0IDEwNTEuMjUgMTk0LjY3MiAxMDQ1LjA1IDE5MC4wNjdDMTAzOC44MyAxODUuNDUgMTAzNS43MyAxNzguNTMxIDEwMzUuNzMgMTY5LjI4N0MxMDM1LjczIDE1OC43MzIgMTA0MC4wMyAxNTAuNTU3IDEwNDguNjUgMTQ0LjczOUMxMDU3LjI3IDEzOC45NDQgMTA2OC42NyAxMzYuMDM1IDEwODIuODcgMTM2LjAzNUMxMTAwLjEgMTM2LjAzNSAxMTEzLjU0IDE0MC4wMDIgMTEyMy4xOSAxNDcuOTEzQzExMzIuOCAxNTUuODIzIDExMzcuODggMTY2LjY0MyAxMTM4LjQgMTgwLjM3MUgxMTY0LjYzQzExNjMuNjIgMTU5LjAwOCAxMTU2LjIxIDE0Mi4yMzggMTE0Mi4zOSAxMzAuMDk3QzExMjguNTcgMTE3Ljk1NSAxMTA5LjI0IDExMS44OTUgMTA4NC4zOSAxMTEuODk1QzEwNjIuMzMgMTExLjg5NSAxMDQ0LjQ2IDExNi44NDIgMTAzMC43NyAxMjYuNzM2QzEwMTcuMDcgMTM2LjYzIDEwMTAuMjQgMTUwLjk1MyAxMDEwLjI0IDE2OS42ODRDMTAxMC4yNCAxODcuMzY3IDEwMTUuMzEgMjAwLjAyNyAxMDI1LjQ2IDIwNy42ODRDMTAzNS41OSAyMTUuMzQyIDEwNTAuMTcgMjIxLjAwNSAxMDY5LjE5IDIyNC43MDdMMTA5OC44NSAyMzAuMjQ5QzExMTQuODIgMjMzLjQxMSAxMTI1Ljg1IDIzNy4zNzcgMTEzMS45MiAyNDIuMTI2QzExMzguMDIgMjQ2Ljg3NSAxMTQxLjA1IDI1My44NzEgMTEzMS45MiAyNDIuMTI2QzExMzguMDIgMjQ2Ljg3NSAxMTQxLjA1IDI1My44NzEgMTEzMS45MiAyNDIuMTI2QzExMzguMDIgMjQ2Ljg3NSAxMTQxLjA1IDI1My44NzEgMTEzMS45MiAyNDIuMTI2QzExMzguMDIgMjQ2Ljg3NSAxMTQxLjA1IDI1My44NzEgMTEzMi43IDI2Ny40MTJDMTEyNy4yOCAyNzEuOTE4IDExMTkuNTEgMjc2LjEzOCAxMTA4LjM0IDI3OS43NDRDMTExOS41MSAyOTMuNTI0IDExMDcuNzIgMjk2LjM1NSAxMDkyLjc1IDI5Ni4zNTVDMTA3NS4yNiAyOTYuMzU1IDEwNjAuOTMgMjkyLjM0NSAxMDQ5Ljc3IDI4NC4yOEMxMDM4LjYxIDI3Ni4yMzcgMTAzMi45MiAyNjUuMzUxIDEwMzIuNjYgMjUxLjYyM0gxMDA2LjhDMTAwNy4zMSAyNzIuNzMzIDEwMTUuMjMgMjg5LjQ5MSAxMDMwLjU4IDMwMS44OTdDMTA0NS45MSAzMTQuMzA0IDEwNjYuMTMgMzIwLjQ5NiAxMDkxLjIzIDMyMC40OTZDMTExMy44IDMyMC40OTYgMTEzMS45OSAzMTUuNTQ4IDExNDUuOCAzMDUuNjU0QzExNTkuNjIgMjk1Ljc2MSAxMTY2LjU0IDI4MS40MzcgMTE2Ni41NCAyNjIuNzA3QzExNjYuNTQgMjQzLjk3NyAxMTYwLjc3IDIzMC4wNSAxMTQ5LjI0IDIyMi41MjVMMTE0OS4yMyAyMjIuNTE0WiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNMTM3OC4zNyAyOTAuMDA5QzEzNzQuNTYgMjkwLjAwOSAxMzcxLjU5IDI4OS40MTQgMTM3MC4wNiAyODcuNTYzQzEzNjguNTUgMjg1LjcxMiAxMzY4LjA5IDI4Mi4wOTggMTM2OC4wOSAyNzcuMzVWMTg5Ljg3OUMxMzY4LjA5IDEzNy44ODYgMTMzOS45NSAxMTEuODk1IDEyODMuNjcgMTExLjg5NUMxMjU5LjU3IDExMS44OTUgMTI0MC4xMyAxMTguNDI5IDEyMjUuMyAxMzEuNDk2QzEyMTAuNDcgMTQ0LjU1MiAxMjAyLjUzIDE2Mi45NjMgMTIwMS41MiAxODYuNzE3SDEyMjcuMzhDMTIzMC42NyAxNTIuNjgzIDEyNTAuMDYgMTM1LjY2MSAxMjg1LjU2IDEzNS42NjFDMTMwNC41NyAxMzUuNjYxIDEzMTguODkgMTQwLjM1NCAxMzI4LjUzIDE0OS43MTlDMTMzOC4xNiAxNTkuMDk2IDEzNDIuOTkgMTcxLjY4OSAxMzQyLjk5IDE4Ny41MjJDMTM0Mi45OSAxOTMuODQ2IDEzMzcuMzQgMTk3Ljg3OCAxMzI2LjA2IDE5OS41OTdDMTMxNC43NyAyMDEuMzE2IDEyOTcuNDcgMjAyLjQ0IDEyNzQuMTYgMjAyLjk1OEMxMjUxLjM0IDIwMy40ODYgMTIzMy4wOSAyMDguMzAxIDEyMTkuMzkgMjE3LjQxM0MxMjA1LjY5IDIyNi41MjUgMTE5OC44NiAyNDAuNDQgMTE5OC44NiAyNTkuMTgxQzExOTguODYgMjc3LjkyMyAxMjA1LjI1IDI5Mi44MTkgMTIxOC4wNiAzMDMuOTE0QzEyMzAuODYgMzE0Ljk5OCAxMjQ3LjQxIDMyMC41MjkgMTI2Ny42OCAzMjAuNTI5QzEyODUuNDIgMzIwLjUyOSAxMzAzLjQ3IDMxNy4wNTggMTMxNy4zMSAzMDguODVDMTMzMS41IDMwMC40MjEgMTM0MS41NiAyODUuOTk5IDEzNDMuMzYgMjc3LjM5NFYyOTIuMDkyQzEzNDMuMzYgMzA1LjYxIDEzNTQuMzQgMzE2LjU4NCAxMzY3Ljg2IDMxNi41ODRIMTM4NS45NlYyOTAuMDc1SDEzNzguMzZWMjkwLjAzMUwxMzc4LjM3IDI5MC4wMDlaTTEzNDMgMjQ0LjA5OEMxMzQzIDI1NC4zODkgMTMzOS41MiAyNjMuNSAxMzMyLjU0IDI3MS40MTFDMTMyNS41NiAyNzkuMzIyIDEzMTYuNTEgMjg1LjQwNCAxMzA1LjM1IDI4OS42MTNDMTI5NC4xOSAyOTMuODQzIDEyODIuNzkgMjk2LjA5MSAxMjcxLjEzIDI5Ni4zNDRDMTI1Ni45MyAyOTYuMzQ0IDEyNDUuNTIgMjkzLjE4MiAxMjM2LjkxIDI4Ni44MzZDMTIyOC4yOSAyODAuNTEyIDEyMjMuOTggMjcxLjQgMTIyMy45OCAyNTkuNTIzQzEyMjMuOTggMjM5Ljk5OSAxMjM4LjE5IDIyOC45MTUgMTI2Ni41NyAyMjYuMjcxQzEyNjYuNTcgMjI2LjI3MSAxMzA1LjYgMjIzLjYzOCAxMzA5LjkxIDIyMy4xMDlDMTMwOS45MSAyMjMuMTA5IDEzMjYuMiAyMjIuMTE3IDEzMzguNzYgMjIwLjQ5OEMxMzQxIDIyMC4yIDEzNDMgMjIxLjk2MyAxMzQzIDIyNC4yMzNWMjQ0LjA4N1YyNDQuMDk4WiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNODEuMDgwMSA2OS45NEM1MS4yMzI4IDEwMC4xNCAzMi44IDE0MS42NDQgMzIuOCAxODcuNDY3QzMyLjggMjMzLjI5IDUxLjIzMjggMjc0Ljc5NCA4MS4wODAxIDMwNC45OTRDMzMuNjkyNSAyODcuMDAyIDAgMjQxLjE2OCAwIDE4Ny40NjdDMCAxMzMuNzY2IDMzLjY5MjUgODcuOTMyMSA4MS4wODAxIDY5Ljk0WiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNMzYxLjQ4NSAxNDguMDEyQzM1MC45ODUgMTA2Ljg3MiAzMjQuODk1IDY5LjY5NzcgMjg1LjYxNyA0Ni4wOTc2QzI0Ni4zNDkgMjIuNDk3NCAyMDEuMjY0IDE2LjkyMjQgMTYwLjAyNSAyNi45NDg2QzE5OS44NDMgLTQuNDE5MTEgMjU2LjQ4NiAtOS42OTY2MyAzMDIuNTE4IDE3Ljk2OTFDMzQ4LjU1IDQ1LjYyMzggMzcwLjQ4NyA5OC4xMDE2IDM2MS40ODUgMTQ4LjAwMVYxNDguMDEyWiIgZmlsbD0iIzIyMjIyMiIvPgo8cGF0aCBkPSJNMzYxLjQ4NSAyMzEuMTMxQzM1MC45ODUgMjcyLjI3MiAzMjQuODk1IDMwOS40NDYgMjg1LjYxNyAzMzMuMDQ2QzI0Ni4zNDkgMzU2LjY0NiAyMDEuMjY0IDM2Mi4yMjEgMTYwLjAyNSAzNTIuMTk1QzE5OS44NDMgMzgzLjU2MyAyNTYuNDg2IDM4OC44NCAzMDIuNTE4IDM2MS4xNzVDMzQ4LjU1IDMzMy41MiAzNzAuNDg3IDI4MS4wNDIgMzYxLjQ4NSAyMzEuMTQyVjIzMS4xMzFaIiBmaWxsPSIjMjIyMjIyIi8+Cjwvc3ZnPgo=" alt="Musa" style="height:20px;display:block">
   <span style="font-size:12px;color:#999;font-family:'Inter',sans-serif;font-weight:400;letter-spacing:0.02em">Dashboard Gestão de Resíduos</span>
 </div>
 <nav>
@@ -626,7 +590,7 @@
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Receita estimada</div>
-      <div class="kpi-value">R$ 1,6M</div>
+      <div class="kpi-value">R$ 1,7M</div>
       <div class="kpi-sub">repasse no período</div>
     </div>
     <div class="kpi-card highlight-blue">
@@ -727,7 +691,7 @@
     <div class="chart-card">
       <div class="chart-header">
         <div class="chart-title">Captura realizada vs potencial</div>
-        <div class="chart-insight">Potencial mensal de R$ 203k se todas as lojas subissem 1 tier. Média de realização: 73%. Gap médio de R$ 55k/mês.</div>
+        <div class="chart-insight">Potencial mensal de R$ 204k se todas as lojas subissem 1 tier. Média de realização: 74%. Gap médio de R$ 52k/mês.</div>
       </div>
       <div class="chart-inner" style="height:300px;position:relative">
         <canvas id="c_repasse" role="img" aria-label="Repasse realizado vs potencial por mês"></canvas>
@@ -775,7 +739,7 @@
     <div class="chart-card">
       <div class="chart-header">
         <div class="chart-title">Desperdício de receita por estado</div>
-        <div class="chart-insight">SP lidera em gap absoluto (R$ 286k) pelo volume de lojas. RJ tem o maior gap por loja (R$ 1.046) — alta eficiência possível, baixa realizada.</div>
+        <div class="chart-insight">SP lidera em gap absoluto (R$ 259k) pelo volume de lojas. RJ tem o maior gap por loja (R$ 1.245) — alta eficiência possível, baixa realizada.</div>
       </div>
       <div class="chart-inner" id="estado_gap_html" style="padding:12px 16px"></div>
       <div class="chart-legend">
@@ -844,146 +808,56 @@
     <h1>Burger King</h1>
     <p>689 unidades · média 93 L/mês · Jun/2025 – Abr/2026</p>
   </div>
-
-  <!-- KPIs -->
   <div class="kpi-row">
-    <div class="kpi-card">
-      <div class="kpi-label">Total unidades</div>
-      <div class="kpi-value">689</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Volume total</div>
-      <div class="kpi-value">703k</div>
-      <div class="kpi-sub">litros no período</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Receita estimada</div>
-      <div class="kpi-value">R$ 1,2M</div>
-      <div class="kpi-sub">repasse no período</div>
-    </div>
-    <div class="kpi-card highlight-blue">
-      <div class="kpi-label">Média mensal</div>
-      <div class="kpi-value">93 L</div>
-      <div class="kpi-sub">por unidade</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">No Tier 1</div>
-      <div class="kpi-value">18%</div>
-      <div class="kpi-sub">124 unidades</div>
-    </div>
+    <div class="kpi-card"><div class="kpi-label">Total unidades</div><div class="kpi-value">689</div></div>
+    <div class="kpi-card"><div class="kpi-label">Volume total</div><div class="kpi-value">703k</div><div class="kpi-sub">litros no período</div></div>
+    <div class="kpi-card"><div class="kpi-label">Receita estimada</div><div class="kpi-value">R$ 1,33M</div><div class="kpi-sub">repasse no período</div></div>
+    <div class="kpi-card highlight-blue"><div class="kpi-label">Média mensal</div><div class="kpi-value">93 L</div><div class="kpi-sub">por unidade</div></div>
+    <div class="kpi-card"><div class="kpi-label">No Tier 1</div><div class="kpi-value">18%</div><div class="kpi-sub">124 unidades</div></div>
   </div>
-
-  <!-- Tiers -->
   <div class="section-label">Tiers de geração — média mensal em litros</div>
   <div class="tier-row">
-    <div class="tier-card" style="border-top:3px solid #444">
-      <span class="tier-badge" style="background:#f0f0f0;color:#444">Tier 1 — alto</span>
-      <div class="tier-range">média 169 L/mês</div>
-      <div class="tier-count">124 unidades</div>
-    </div>
-    <div class="tier-card" style="border-top:3px solid #888">
-      <span class="tier-badge" style="background:#f5f5f5;color:#888">Tier 2 — médio-alto</span>
-      <div class="tier-range">média 110 L/mês</div>
-      <div class="tier-count">189 unidades</div>
-    </div>
-    <div class="tier-card" style="border-top:3px solid #bbb">
-      <span class="tier-badge" style="background:#f8f8f8;color:#aaa">Tier 3 — médio-baixo</span>
-      <div class="tier-range">média 76 L/mês</div>
-      <div class="tier-count">185 unidades</div>
-    </div>
-    <div class="tier-card" style="border-top:3px solid #e0e0e0">
-      <span class="tier-badge" style="background:#fafafa;color:#ccc">Tier 4 — baixo</span>
-      <div class="tier-range">média 42 L/mês</div>
-      <div class="tier-count">191 unidades</div>
-    </div>
+    <div class="tier-card" style="border-top:3px solid #444"><span class="tier-badge" style="background:#f0f0f0;color:#444">Tier 1 — alto</span><div class="tier-range">média 169 L/mês</div><div class="tier-count">124 unidades</div></div>
+    <div class="tier-card" style="border-top:3px solid #888"><span class="tier-badge" style="background:#f5f5f5;color:#888">Tier 2 — médio-alto</span><div class="tier-range">média 110 L/mês</div><div class="tier-count">189 unidades</div></div>
+    <div class="tier-card" style="border-top:3px solid #bbb"><span class="tier-badge" style="background:#f8f8f8;color:#aaa">Tier 3 — médio-baixo</span><div class="tier-range">média 76 L/mês</div><div class="tier-count">185 unidades</div></div>
+    <div class="tier-card" style="border-top:3px solid #e0e0e0"><span class="tier-badge" style="background:#fafafa;color:#ccc">Tier 4 — baixo</span><div class="tier-range">média 42 L/mês</div><div class="tier-count">191 unidades</div></div>
   </div>
-
-  <!-- Sazonalidade Shop vs Rua -->
   <div class="chart-row one">
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Sazonalidade — Shopping vs Rua</div>
-        <div class="chart-insight">Comportamento sazonal idêntico — 94L Shop vs 91L Rua. Vale de inverno (Jun–Ago) afeta os dois formatos igualmente. Formato de loja não explica volume no BKB.</div>
-      </div>
-      <div class="chart-inner" style="height:280px;position:relative">
-        <canvas id="bk_saz"></canvas>
-      </div>
-      <div class="chart-legend">
-        <span><span class="leg-dot" style="background:#8AA5FF"></span>Shopping · 94L média</span>
-        <span><span class="leg-dot" style="background:#c4ceff"></span>Rua · 91L média</span>
-      </div>
+      <div class="chart-header"><div class="chart-title">Sazonalidade — Shopping vs Rua</div><div class="chart-insight">Comportamento sazonal idêntico — 94L Shop vs 91L Rua. Vale de inverno (Jun–Ago) afeta os dois formatos igualmente.</div></div>
+      <div class="chart-inner" style="height:280px;position:relative"><canvas id="bk_saz"></canvas></div>
+      <div class="chart-legend"><span><span class="leg-dot" style="background:#8AA5FF"></span>Shopping · 94L média</span><span><span class="leg-dot" style="background:#c4ceff"></span>Rua · 91L média</span></div>
     </div>
   </div>
-
-  <!-- Regional -->
   <div class="chart-row two">
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Alta performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f0f0f0;color:#444">Tiers 1 + 2</span></div>
-        <div class="chart-insight">Norte lidera com 86%. Sudeste é crítico — apenas 37% das 475 lojas em T1+T2.</div>
-      </div>
-      <div class="chart-inner">
-        <div class="reg-list" id="bk_reg_t12"></div>
-      </div>
-      <div class="chart-legend">
-        <span><span class="leg-dot" style="background:#8AA5FF"></span>BKB</span>
-      </div>
+      <div class="chart-header"><div class="chart-title">Alta performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f0f0f0;color:#444">Tiers 1 + 2</span></div><div class="chart-insight">Norte lidera com 86%. Sudeste é crítico — apenas 37% das 475 lojas em T1+T2.</div></div>
+      <div class="chart-inner"><div class="reg-list" id="bk_reg_t12"></div></div>
+      <div class="chart-legend"><span><span class="leg-dot" style="background:#8AA5FF"></span>BKB</span></div>
     </div>
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Baixa performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">Tiers 3 + 4</span></div>
-        <div class="chart-insight">Sudeste concentra 63% das lojas BKB nos tiers baixos — 299 de 475 unidades.</div>
-      </div>
-      <div class="chart-inner">
-        <div class="reg-list" id="bk_reg_t34"></div>
-      </div>
-      <div class="chart-legend">
-        <span><span class="leg-dot" style="background:#8AA5FF"></span>BKB</span>
-      </div>
+      <div class="chart-header"><div class="chart-title">Baixa performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">Tiers 3 + 4</span></div><div class="chart-insight">Sudeste concentra 63% das lojas BKB nos tiers baixos — 299 de 475 unidades.</div></div>
+      <div class="chart-inner"><div class="reg-list" id="bk_reg_t34"></div></div>
+      <div class="chart-legend"><span><span class="leg-dot" style="background:#8AA5FF"></span>BKB</span></div>
     </div>
   </div>
-
-  <!-- Captura realizada vs potencial -->
   <div class="chart-row one">
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Captura realizada vs potencial</div>
-        <div class="chart-insight">Potencial mensal de R$ 155k. Média de realização: 75%. Gap médio de R$ 39k/mês.</div>
-      </div>
-      <div class="chart-inner" style="height:280px;position:relative">
-        <canvas id="bk_repasse"></canvas>
-      </div>
-      <div class="chart-legend">
-        <span><span class="leg-dot" style="background:#8AA5FF"></span>Realizado</span>
-        <span><span class="leg-dot" style="background:#c4ceff"></span>Gap (potencial)</span>
-        <span><span style="display:inline-block;width:18px;height:0;border-top:2px solid #5577dd;vertical-align:middle;margin-right:4px"></span>% realizado</span>
-      </div>
+      <div class="chart-header"><div class="chart-title">Captura realizada vs potencial</div><div class="chart-insight">Potencial mensal de R$ 191k se todas as lojas subissem 1 tier. Média de realização: 63%. Gap médio de R$ 70k/mês.</div></div>
+      <div class="chart-inner" style="height:280px;position:relative"><canvas id="bk_repasse"></canvas></div>
+      <div class="chart-legend"><span><span class="leg-dot" style="background:#8AA5FF"></span>Realizado</span><span><span class="leg-dot" style="background:#c4ceff"></span>Gap (potencial)</span><span><span style="display:inline-block;width:18px;height:0;border-top:2px solid #5577dd;vertical-align:middle;margin-right:4px"></span>% realizado</span></div>
     </div>
   </div>
-
-  <!-- Desperdício por estado BKB -->
   <div class="chart-row one">
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Desperdício de receita por estado</div>
-        <div class="chart-insight">SP concentra 48% do gap BKB (R$ 276k). RJ tem o maior gap por loja — R$ 1.086/loja com apenas 89 unidades.</div>
-      </div>
+      <div class="chart-header"><div class="chart-title">Desperdício de receita por estado</div><div class="chart-insight">SP concentra 44% do gap BKB (R$ 272k). RJ tem o maior gap por loja — R$ 1.498/loja com apenas 76 unidades.</div></div>
       <div class="chart-inner" id="bk_estado_gap_html" style="padding:12px 16px"></div>
-      <div class="chart-legend">
-        <span><span class="leg-dot" style="background:#8AA5FF"></span>Realizado (período)</span>
-        <span><span class="leg-dot" style="background:#c4ceff"></span>Gap potencial</span>
-        <span><span style="display:inline-block;width:18px;height:4px;background:#5577dd;border-radius:3px;opacity:0.7;vertical-align:middle;margin-right:4px"></span>% do gap total</span>
-      </div>
+      <div class="chart-legend"><span><span class="leg-dot" style="background:#8AA5FF"></span>Realizado (período)</span><span><span class="leg-dot" style="background:#c4ceff"></span>Gap potencial</span></div>
     </div>
   </div>
-
-  <!-- Top 10 + Bottom 10 -->
   <div class="chart-row two">
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Top 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#eef1ff;color:#5577dd">maior volume médio</span></div>
-        <div class="chart-insight">Maringá (PR) domina com 3 unidades no top 10. Nova Iguaçu (RJ) aparece duas vezes.</div>
-      </div>
+      <div class="chart-header"><div class="chart-title">Top 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#eef1ff;color:#5577dd">maior volume médio</span></div><div class="chart-insight">Maringá (PR) domina com 3 unidades no top 10.</div></div>
       <div style="overflow-x:auto">
         <table class="data-table">
           <thead><tr><th>Nome</th><th>Cidade</th><th>UF</th><th>Tier</th><th>Média</th><th>Melhor</th><th>Pior</th></tr></thead>
@@ -1003,10 +877,7 @@
       </div>
     </div>
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Bottom 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">menor volume médio</span></div>
-        <div class="chart-insight">9 de 10 em SP. Várias com pior mês em 0L — meses sem coleta registrada.</div>
-      </div>
+      <div class="chart-header"><div class="chart-title">Bottom 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">menor volume médio</span></div><div class="chart-insight">9 de 10 em SP. Várias com pior mês em 0L.</div></div>
       <div style="overflow-x:auto">
         <table class="data-table">
           <thead><tr><th>Nome</th><th>Cidade</th><th>UF</th><th>Tier</th><th>Média</th><th>Melhor</th><th>Pior</th></tr></thead>
@@ -1026,155 +897,61 @@
       </div>
     </div>
   </div>
-
 </div><!-- /screen-bk -->
 
 <!-- ════════════════════════════════════════ TELA 3 — POPEYES -->
 <div class="screen" id="screen-popeyes" style="display:none">
-  <div class="screen-header">
-    <h1>Popeyes</h1>
-    <p>87 unidades · média 224 L/mês · Jun/2025 – Abr/2026</p>
-  </div>
-
-  <!-- KPIs -->
+  <div class="screen-header"><h1>Popeyes</h1><p>87 unidades · média 224 L/mês · Jun/2025 – Abr/2026</p></div>
   <div class="kpi-row">
-    <div class="kpi-card">
-      <div class="kpi-label">Total unidades</div>
-      <div class="kpi-value">87</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Volume total</div>
-      <div class="kpi-value">214k</div>
-      <div class="kpi-sub">litros no período</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Receita estimada</div>
-      <div class="kpi-value">R$ 385k</div>
-      <div class="kpi-sub">repasse no período</div>
-    </div>
-    <div class="kpi-card highlight-orange">
-      <div class="kpi-label">Média mensal</div>
-      <div class="kpi-value">224 L</div>
-      <div class="kpi-sub">por unidade</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">No Tier 1</div>
-      <div class="kpi-value">80%</div>
-      <div class="kpi-sub">70 unidades</div>
-    </div>
+    <div class="kpi-card"><div class="kpi-label">Total unidades</div><div class="kpi-value">87</div></div>
+    <div class="kpi-card"><div class="kpi-label">Volume total</div><div class="kpi-value">214k</div><div class="kpi-sub">litros no período</div></div>
+    <div class="kpi-card"><div class="kpi-label">Receita estimada</div><div class="kpi-value">R$ 341k</div><div class="kpi-sub">repasse no período</div></div><!-- PLK KPI ok -->
+    <div class="kpi-card highlight-orange"><div class="kpi-label">Média mensal</div><div class="kpi-value">224 L</div><div class="kpi-sub">por unidade</div></div>
+    <div class="kpi-card"><div class="kpi-label">No Tier 1</div><div class="kpi-value">80%</div><div class="kpi-sub">70 unidades</div></div>
   </div>
-
-  <!-- Tiers -->
   <div class="section-label">Tiers de geração — média mensal em litros</div>
   <div class="tier-row">
-    <div class="tier-card" style="border-top:3px solid #444">
-      <span class="tier-badge" style="background:#f0f0f0;color:#444">Tier 1 — alto</span>
-      <div class="tier-range">média 255 L/mês</div>
-      <div class="tier-count">70 unidades</div>
-    </div>
-    <div class="tier-card" style="border-top:3px solid #888">
-      <span class="tier-badge" style="background:#f5f5f5;color:#888">Tier 2 — médio-alto</span>
-      <div class="tier-range">média 118 L/mês</div>
-      <div class="tier-count">10 unidades</div>
-    </div>
-    <div class="tier-card" style="border-top:3px solid #bbb">
-      <span class="tier-badge" style="background:#f8f8f8;color:#aaa">Tier 3 — médio-baixo</span>
-      <div class="tier-range">média 79 L/mês</div>
-      <div class="tier-count">4 unidades</div>
-    </div>
-    <div class="tier-card" style="border-top:3px solid #e0e0e0">
-      <span class="tier-badge" style="background:#fafafa;color:#ccc">Tier 4 — baixo</span>
-      <div class="tier-range">média 39 L/mês</div>
-      <div class="tier-count">3 unidades</div>
-    </div>
+    <div class="tier-card" style="border-top:3px solid #444"><span class="tier-badge" style="background:#f0f0f0;color:#444">Tier 1 — alto</span><div class="tier-range">média 255 L/mês</div><div class="tier-count">70 unidades</div></div>
+    <div class="tier-card" style="border-top:3px solid #888"><span class="tier-badge" style="background:#f5f5f5;color:#888">Tier 2 — médio-alto</span><div class="tier-range">média 118 L/mês</div><div class="tier-count">10 unidades</div></div>
+    <div class="tier-card" style="border-top:3px solid #bbb"><span class="tier-badge" style="background:#f8f8f8;color:#aaa">Tier 3 — médio-baixo</span><div class="tier-range">média 79 L/mês</div><div class="tier-count">4 unidades</div></div>
+    <div class="tier-card" style="border-top:3px solid #e0e0e0"><span class="tier-badge" style="background:#fafafa;color:#ccc">Tier 4 — baixo</span><div class="tier-range">média 39 L/mês</div><div class="tier-count">3 unidades</div></div>
   </div>
-
-  <!-- Sazonalidade -->
   <div class="chart-row one">
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Sazonalidade mensal</div>
-        <div class="chart-insight">Jun/25 atípico (ramp-up). Pico em Set/25 (267L). Queda em Nov/25 e Abr/26. PLK é 99% shopping — sazonalidade reflete tráfego de mall.</div>
-      </div>
-      <div class="chart-inner" style="height:280px;position:relative">
-        <canvas id="plk_saz"></canvas>
-      </div>
-      <div class="chart-legend">
-        <span><span class="leg-dot" style="background:#FFBA86"></span>PLK Shop · 86 un.</span>
-        <span><span class="leg-dot" style="background:#FFD4A8"></span>PLK Rua · 1 un.</span>
-      </div>
+      <div class="chart-header"><div class="chart-title">Sazonalidade mensal</div><div class="chart-insight">Jun/25 atípico (ramp-up). Pico em Set/25 (267L). Queda em Nov/25 e Abr/26. PLK é 99% shopping — sazonalidade reflete tráfego de mall.</div></div>
+      <div class="chart-inner" style="height:280px;position:relative"><canvas id="plk_saz"></canvas></div>
+      <div class="chart-legend"><span><span class="leg-dot" style="background:#FFBA86"></span>PLK Shop · 86 un.</span><span><span class="leg-dot" style="background:#FFD4A8"></span>PLK Rua · 1 un.</span></div>
     </div>
   </div>
-
-  <!-- Regional -->
   <div class="chart-row two">
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Alta performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f0f0f0;color:#444">Tiers 1 + 2</span></div>
-        <div class="chart-insight">Sul e Nordeste com 100% em T1+T2. PLK não tem presença no Norte.</div>
-      </div>
-      <div class="chart-inner">
-        <div class="reg-list" id="plk_reg_t12"></div>
-      </div>
-      <div class="chart-legend">
-        <span><span class="leg-dot" style="background:#FFBA86"></span>PLK</span>
-      </div>
+      <div class="chart-header"><div class="chart-title">Alta performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f0f0f0;color:#444">Tiers 1 + 2</span></div><div class="chart-insight">Sul e Nordeste com 100% em T1+T2. PLK não tem presença no Norte.</div></div>
+      <div class="chart-inner"><div class="reg-list" id="plk_reg_t12"></div></div>
+      <div class="chart-legend"><span><span class="leg-dot" style="background:#FFBA86"></span>PLK</span></div>
     </div>
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Baixa performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">Tiers 3 + 4</span></div>
-        <div class="chart-insight">Apenas Sudeste e Centro-Oeste têm lojas PLK nos tiers baixos.</div>
-      </div>
-      <div class="chart-inner">
-        <div class="reg-list" id="plk_reg_t34"></div>
-      </div>
-      <div class="chart-legend">
-        <span><span class="leg-dot" style="background:#FFD4A8"></span>PLK</span>
-      </div>
+      <div class="chart-header"><div class="chart-title">Baixa performance por região <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">Tiers 3 + 4</span></div><div class="chart-insight">Apenas Sudeste e Centro-Oeste têm lojas PLK nos tiers baixos.</div></div>
+      <div class="chart-inner"><div class="reg-list" id="plk_reg_t34"></div></div>
+      <div class="chart-legend"><span><span class="leg-dot" style="background:#FFD4A8"></span>PLK</span></div>
     </div>
   </div>
-
-  <!-- Captura realizada vs potencial -->
   <div class="chart-row one">
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Captura realizada vs potencial</div>
-        <div class="chart-insight">PLK já realiza acima do potencial em vários meses — T1 domina. Gap concentrado em Jun/25 (ramp-up) e meses de queda sazonal.</div>
-      </div>
-      <div class="chart-inner" style="height:280px;position:relative">
-        <canvas id="plk_repasse"></canvas>
-      </div>
-      <div class="chart-legend">
-        <span><span class="leg-dot" style="background:#FFBA86"></span>Realizado</span>
-        <span><span class="leg-dot" style="background:#FFD4A8"></span>Gap (potencial)</span>
-        <span><span style="display:inline-block;width:18px;height:0;border-top:2px solid #b35a00;vertical-align:middle;margin-right:4px"></span>% realizado</span>
-      </div>
+      <div class="chart-header"><div class="chart-title">Captura realizada vs potencial</div><div class="chart-insight">PLK já realiza bem acima do BKB — média de 79% de realização. Gap concentrado em Jun/25 (ramp-up) e lojas T2/T3/T4.</div></div>
+      <div class="chart-inner" style="height:280px;position:relative"><canvas id="plk_repasse"></canvas></div>
+      <div class="chart-legend"><span><span class="leg-dot" style="background:#FFBA86"></span>Realizado</span><span><span class="leg-dot" style="background:#FFD4A8"></span>Gap (potencial)</span></div>
     </div>
   </div>
-
-  <!-- Desperdício por estado PLK -->
   <div class="chart-row one">
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Desperdício de receita por estado</div>
-        <div class="chart-insight">Gap total PLK é de R$ 21,9k — muito menor que BKB pois 80% das lojas já estão no T1. SP e RJ concentram 77% do gap restante.</div>
-      </div>
+      <div class="chart-header"><div class="chart-title">Desperdício de receita por estado</div><div class="chart-insight">Gap total PLK de R$ 89k — SP concentra 48% e RJ tem o maior gap por loja (R$ 3.315) pelo preço de R$ 3,00/L.</div></div>
       <div class="chart-inner" id="plk_estado_gap_html" style="padding:12px 16px"></div>
-      <div class="chart-legend">
-        <span><span class="leg-dot" style="background:#FFBA86"></span>Realizado (período)</span>
-        <span><span class="leg-dot" style="background:#FFD4A8"></span>Gap potencial</span>
-        <span><span style="display:inline-block;width:18px;height:4px;background:#b35a00;border-radius:3px;opacity:0.7;vertical-align:middle;margin-right:4px"></span>% do gap total</span>
-      </div>
+      <div class="chart-legend"><span><span class="leg-dot" style="background:#FFBA86"></span>Realizado (período)</span><span><span class="leg-dot" style="background:#FFD4A8"></span>Gap potencial</span></div>
     </div>
   </div>
-
-  <!-- Top 10 + Bottom 10 -->
   <div class="chart-row two">
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Top 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#fff5ee;color:#b35a00">maior volume médio</span></div>
-        <div class="chart-insight">SP domina com 7 das 10 maiores. Cantareira Norte lidera com 629L/mês.</div>
-      </div>
+      <div class="chart-header"><div class="chart-title">Top 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#fff5ee;color:#b35a00">maior volume médio</span></div><div class="chart-insight">SP domina com 7 das 10 maiores. Cantareira Norte lidera com 629L/mês.</div></div>
       <div style="overflow-x:auto">
         <table class="data-table">
           <thead><tr><th>Nome</th><th>Cidade</th><th>UF</th><th>Tier</th><th>Média</th><th>Melhor</th><th>Pior</th></tr></thead>
@@ -1194,10 +971,7 @@
       </div>
     </div>
     <div class="chart-card">
-      <div class="chart-header">
-        <div class="chart-title">Bottom 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">menor volume médio</span></div>
-        <div class="chart-insight">Shopping Light (SP) é a pior PLK com apenas 17L/mês. Várias com pior mês em 0L — lojas recentes.</div>
-      </div>
+      <div class="chart-header"><div class="chart-title">Bottom 10 lojas <span style="display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:#f5f5f5;color:#aaa">menor volume médio</span></div><div class="chart-insight">Shopping Light (SP) é a pior PLK com apenas 17L/mês.</div></div>
       <div style="overflow-x:auto">
         <table class="data-table">
           <thead><tr><th>Nome</th><th>Cidade</th><th>UF</th><th>Tier</th><th>Média</th><th>Melhor</th><th>Pior</th></tr></thead>
@@ -1217,119 +991,46 @@
       </div>
     </div>
   </div>
-
 </div><!-- /screen-popeyes -->
 
 <!-- ════════════════════════════════════════ TELA 4 — INSIGHTS -->
 <div class="screen" id="screen-insights" style="display:none">
-  <div class="screen-header">
-    <h1>Insights</h1>
-    <p>Principais padrões identificados no período Jun/2025 – Abr/2026</p>
-  </div>
-
-  <!-- Featured card -->
+  <div class="screen-header"><h1>Insights</h1><p>Principais padrões identificados no período Jun/2025 – Abr/2026</p></div>
   <div class="insight-featured">
     <div class="insight-featured-label">● RESULTADO DO PERÍODO</div>
-    <div class="insight-featured-title">R$ 603k de potencial adicional<br>ao longo de 11 meses.</div>
-    <div class="insight-featured-sub">SP e RJ concentram 64% desse potencial. A melhoria de 1 tier por loja já elevaria o repasse mensal de R$ 149k para R$ 203k — um crescimento de 36% com a mesma rede.</div>
+    <div class="insight-featured-title">R$ 689k de potencial adicional<br>ao longo de 11 meses.</div>
+    <div class="insight-featured-sub">SP e RJ concentram 66% desse potencial. A melhoria de 1 tier por loja já elevaria o repasse mensal de R$ 168k para R$ 231k — um crescimento de 37% com a mesma rede.</div>
   </div>
-
-  <!-- Grupo 1: O que os dados revelam -->
   <div class="insight-section-label">● O QUE OS DADOS REVELAM</div>
   <div class="insight-cards-grid">
-    <div class="insight-new-card">
-      <div class="insight-new-num">01</div>
-      <div class="insight-new-content">
-      <div class="insight-new-title">PLK gera 2.4× mais por unidade que BKB</div>
-      <div class="insight-new-body">Média de 224 L/mês vs 93 L/mês. 80% das lojas Popeyes estão no Tier 1 contra apenas 18% do BKB. São modelos estruturalmente diferentes — Popeyes é 99% shopping, BKB é misto.</div>
-      </div>
-    </div>
-    <div class="insight-new-card">
-      <div class="insight-new-num">02</div>
-      <div class="insight-new-content">
-      <div class="insight-new-title">O segredo é mix — valor alto + volume consistente</div>
-      <div class="insight-new-body">RJ paga R$ 2,43/L — o maior do país — e tem 89 lojas BKB com gap médio de R$ 1.086/loja. Uma loja RJ bem operada vale mais que duas SP medianas. A expansão ideal combina estados com bom preço e alto volume.</div>
-      </div>
-    </div>
-    <div class="insight-new-card">
-      <div class="insight-new-num">03</div>
-      <div class="insight-new-content">
-      <div class="insight-new-title">Sazonalidade é previsível — inverno é o vale</div>
-      <div class="insight-new-body">Jun–Ago recuam ~15–20% em todas as marcas e formatos. Jun/25 é atípico — ramp-up da operação, ~50% abaixo do normal. O padrão é consistente o suficiente para planejar coletas com antecedência.</div>
-      </div>
-    </div>
+    <div class="insight-new-card"><div class="insight-new-num">01</div><div class="insight-new-content"><div class="insight-new-title">PLK gera 2.4× mais por unidade que BKB</div><div class="insight-new-body">Média de 224 L/mês vs 93 L/mês. 80% das lojas Popeyes estão no Tier 1 contra apenas 18% do BKB. São modelos estruturalmente diferentes — Popeyes é 99% shopping, BKB é misto.</div></div></div>
+    <div class="insight-new-card"><div class="insight-new-num">02</div><div class="insight-new-content"><div class="insight-new-title">O segredo é mix — valor alto + volume consistente</div><div class="insight-new-body">RJ paga R$ 3,00/L — o maior do país — e tem 76 lojas BKB com gap médio de R$ 1.498/loja. Uma loja RJ bem operada vale mais que duas SP medianas.</div></div></div>
+    <div class="insight-new-card"><div class="insight-new-num">03</div><div class="insight-new-content"><div class="insight-new-title">Sazonalidade é previsível — inverno é o vale</div><div class="insight-new-body">Jun–Ago recuam ~15–20% em todas as marcas e formatos. Jun/25 é atípico — ramp-up da operação, ~50% abaixo do normal.</div></div></div>
   </div>
-
-  <!-- Grupo 2: Ações prioritárias -->
   <div class="insight-section-label">● AÇÕES PRIORITÁRIAS</div>
   <div class="insight-cards-grid">
-    <div class="insight-new-card">
-      <div class="insight-new-num">01</div>
-      <div class="insight-new-content">
-      <div class="insight-new-title">SP: foco imediato nas lojas T4</div>
-      <div class="insight-new-body">321 lojas BKB em SP com média de 75 L/mês — 47% do gap total. 10 lojas com menos de 10 L/mês. Recomendamos reunião com gerentes regionais para mapear causa raiz antes de qualquer ajuste operacional.</div>
-      </div>
-    </div>
-    <div class="insight-new-card">
-      <div class="insight-new-num">02</div>
-      <div class="insight-new-content">
-      <div class="insight-new-title">RJ: aumentar frequência de coleta</div>
-      <div class="insight-new-body">Com o maior preço por litro (R$ 2,43) e gap médio de R$ 1.086/loja, RJ tem o maior retorno potencial por visita adicional. Aumentar frequência de coleta pode capturar volume que hoje não está sendo coletado.</div>
-      </div>
-    </div>
-    <div class="insight-new-card">
-      <div class="insight-new-num">03</div>
-      <div class="insight-new-content">
-      <div class="insight-new-title">Anomalias T4 merecem investigação</div>
-      <div class="insight-new-body">Lojas com 2–6 L/mês não se explicam por sazonalidade. Duas hipóteses: operador não repassa volume correto — ou desvio interno, com óleo sendo vendido por fora antes da coleta. Ambas representam perda direta de receita para a Zamp.</div>
-      </div>
-    </div>
+    <div class="insight-new-card"><div class="insight-new-num">01</div><div class="insight-new-content"><div class="insight-new-title">SP: foco imediato nas lojas T4</div><div class="insight-new-body">265 lojas BKB em SP com gap total de R$ 315k — 46% do gap total. 10 lojas com menos de 10 L/mês. Recomendamos reunião com gerentes regionais para mapear causa raiz.</div></div></div>
+    <div class="insight-new-card"><div class="insight-new-num">02</div><div class="insight-new-content"><div class="insight-new-title">RJ: aumentar frequência de coleta</div><div class="insight-new-body">Com o maior preço por litro (R$ 3,00) e gap médio de R$ 1.498/loja, RJ tem o maior retorno potencial por visita adicional.</div></div></div>
+    <div class="insight-new-card"><div class="insight-new-num">03</div><div class="insight-new-content"><div class="insight-new-title">Anomalias T4 merecem investigação</div><div class="insight-new-body">Lojas com 2–6 L/mês não se explicam por sazonalidade. Duas hipóteses: operador não repassa volume correto — ou desvio interno, com óleo sendo vendido por fora antes da coleta.</div></div></div>
   </div>
-
-  <!-- Grupo 3: Para avançar juntos -->
   <div class="insight-section-label" style="margin-bottom:4px">● PARA AVANÇAR JUNTOS</div>
   <div class="insight-section-desc">Dados que a Zamp pode compartilhar para enriquecer as próximas análises.</div>
   <div class="insight-cards-grid">
-    <div class="insight-new-card">
-      <div class="insight-new-num">01</div>
-      <div class="insight-new-content">
-      <div class="insight-new-title">Volume de compra de óleo por loja</div>
-      <div class="insight-new-body">Com o volume de óleo comprado e o volume coletado, conseguimos calcular a taxa de aproveitamento real de cada unidade. É o dado mais direto para identificar desvio ou ineficiência operacional.</div>
-      </div>
-    </div>
-    <div class="insight-new-card">
-      <div class="insight-new-num">02</div>
-      <div class="insight-new-content">
-      <div class="insight-new-title">Refeições e consumidores por loja</div>
-      <div class="insight-new-body">Permite calcular a geração esperada de óleo por refeição e identificar lojas que estão muito abaixo do benchmark. Uma loja com alto fluxo e baixo volume coletado é um sinal de alerta imediato.</div>
-      </div>
-    </div>
-    <div class="insight-new-card">
-      <div class="insight-new-num">03</div>
-      <div class="insight-new-content">
-      <div class="insight-new-title">Calendário de promoções</div>
-      <div class="insight-new-body">Promoções de produtos fritos geram picos de consumo de óleo. Com o calendário conseguimos antecipar demanda, ajustar frequência de coleta e evitar acúmulo ou descarte irregular nas lojas.</div>
-      </div>
-    </div>
+    <div class="insight-new-card"><div class="insight-new-num">01</div><div class="insight-new-content"><div class="insight-new-title">Volume de compra de óleo por loja</div><div class="insight-new-body">Com o volume de óleo comprado e o volume coletado, conseguimos calcular a taxa de aproveitamento real de cada unidade.</div></div></div>
+    <div class="insight-new-card"><div class="insight-new-num">02</div><div class="insight-new-content"><div class="insight-new-title">Refeições e consumidores por loja</div><div class="insight-new-body">Permite calcular a geração esperada de óleo por refeição e identificar lojas que estão muito abaixo do benchmark.</div></div></div>
+    <div class="insight-new-card"><div class="insight-new-num">03</div><div class="insight-new-content"><div class="insight-new-title">Calendário de promoções</div><div class="insight-new-body">Promoções de produtos fritos geram picos de consumo de óleo. Com o calendário conseguimos antecipar demanda e ajustar frequência de coleta.</div></div></div>
   </div>
-
 </div><!-- /screen-insights -->
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.screen').forEach(s => {
-    s.style.display = 'none';
-    s.classList.remove('active');
-  });
+  document.querySelectorAll('.screen').forEach(s => { s.style.display = 'none'; s.classList.remove('active'); });
   const geral = document.getElementById('screen-geral');
   if (geral) { geral.style.display = 'block'; geral.classList.add('active'); }
 });
 
 function showScreen(id, btn) {
-  document.querySelectorAll('.screen').forEach(s => {
-    s.classList.remove('active');
-    s.style.display = 'none';
-  });
+  document.querySelectorAll('.screen').forEach(s => { s.classList.remove('active'); s.style.display = 'none'; });
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   const el = document.getElementById('screen-' + id);
   el.classList.add('active');
@@ -1337,7 +1038,6 @@ function showScreen(id, btn) {
   btn.classList.add('active');
 }
 
-// Chart defaults
 const warmBg = '#F9EDE4';
 const gridColor = 'rgba(0,0,0,0.08)';
 const months = ['Jun/25','Jul/25','Ago/25','Set/25','Out/25','Nov/25','Dez/25','Jan/26','Fev/26','Mar/26','Abr/26'];
@@ -1362,15 +1062,12 @@ if (_estadoEl) _estadoEl.addEventListener('mousemove', function(evt) {
     tt.style.top  = (evt.clientY - tt.offsetHeight - 14) + 'px';
   }
 });
-function hideEstadoTip() {
-  document.getElementById('estado-tt').style.display = 'none';
-}
+function hideEstadoTip() { document.getElementById('estado-tt').style.display = 'none'; }
 
 Chart.defaults.font.family = 'Inter';
 Chart.defaults.font.size = 11;
 Chart.defaults.color = '#888';
 
-// Tier distribution
 new Chart(document.getElementById('c_tier'), {
   type: 'bar',
   data: {
@@ -1384,183 +1081,45 @@ new Chart(document.getElementById('c_tier'), {
   },
   options: {
     responsive: true, maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: {
-          label: ctx => ` ${ctx.dataset.label}: ${Math.round(ctx.parsed.y)}%`
-        }
-      }
-    },
-    scales: {
-      x: { stacked: true, grid: { display: false } },
-      y: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: gridColor } }
-    }
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${Math.round(ctx.parsed.y)}%` } } },
+    scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: gridColor } } }
   }
 });
 
-
-// Média por grupo
-const tier1Pct = [14, 17, 81]; // % Tier 1 por grupo
+const tier1Pct = [14, 17, 81];
 new Chart(document.getElementById('c_grupo'), {
   type: 'bar',
   data: {
     labels: ['BKB Rua', 'BKB Shop', 'PLK Shop'],
     datasets: [
-      {
-        type: 'bar',
-        data: [91, 94, 224],
-        backgroundColor: ['#8AA5FF', '#c4ceff', '#FFBA86'],
-        borderRadius: 6,
-        barThickness: 48,
-        yAxisID: 'y',
-        order: 2
-      },
-      {
-        type: 'line',
-        data: [14, 17, 81],
-        borderColor: '#b25a00',
-        borderWidth: 2,
-        pointBackgroundColor: '#b25a00',
-        pointBorderColor: '#b25a00',
-        pointBorderWidth: 0,
-        pointRadius: 3,
-        pointHitRadius: 10,
-        tension: 0,
-        fill: true,
-        backgroundColor: 'rgba(178,90,0,0.10)',
-        yAxisID: 'y2',
-        order: 1
-      }
+      { type: 'bar', data: [91, 94, 224], backgroundColor: ['#8AA5FF', '#c4ceff', '#FFBA86'], borderRadius: 6, barThickness: 48, yAxisID: 'y', order: 2 },
+      { type: 'line', data: [14, 17, 81], borderColor: '#b25a00', borderWidth: 2, pointBackgroundColor: '#b25a00', pointRadius: 3, tension: 0, fill: true, backgroundColor: 'rgba(178,90,0,0.10)', yAxisID: 'y2', order: 1 }
     ]
   },
   options: {
     responsive: true, maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: {
-          label: ctx => {
-            if (ctx.datasetIndex === 0) {
-              return ` ${ctx.parsed.y}L/mês · ${tier1Pct[ctx.dataIndex]}% no Tier 1`;
-            }
-            return ` ${ctx.parsed.y}% no Tier 1`;
-          }
-        }
-      }
-    },
-    scales: {
-      y:  { beginAtZero: true, max: 300, ticks: { callback: v => v + 'L' }, grid: { color: gridColor } },
-      y2: { beginAtZero: true, max: 100, display: false },
-      x:  { grid: { display: false } }
-    }
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, max: 300, ticks: { callback: v => v + 'L' }, grid: { color: gridColor } }, y2: { beginAtZero: true, max: 100, display: false }, x: { grid: { display: false } } }
   }
 });
 
-
-
-// Sazonalidade — linha fina com bolinhas
 new Chart(document.getElementById('c_scatter'), {
   type: 'line',
   data: {
     labels: months,
     datasets: [
-      {
-        label: 'BKB Rua',
-        data: [43,104,87,96,98,88,103,101,89,99,100],
-        borderColor: '#8AA5FF',
-        borderWidth: 1.5,
-        fill: false,
-        tension: 0.3,
-        pointRadius: 4,
-        pointStyle: 'circle',
-        pointBackgroundColor: '#8AA5FF',
-        pointBorderColor: '#fff',
-        pointBorderWidth: 1.5
-      },
-      {
-        label: 'BKB Shop',
-        data: [47,105,99,100,107,95,100,103,92,95,98],
-        borderColor: '#c4ceff',
-        borderWidth: 1.5,
-        fill: false,
-        tension: 0.3,
-        pointRadius: 4,
-        pointStyle: 'circle',
-        pointBackgroundColor: '#c4ceff',
-        pointBorderColor: '#fff',
-        pointBorderWidth: 1.5,
-        borderDash: [4,3]
-      },
-      {
-        label: 'PLK Shop',
-        data: [126,253,235,267,248,206,236,248,229,231,186],
-        borderColor: '#FFBA86',
-        borderWidth: 1.5,
-        fill: false,
-        tension: 0.3,
-        pointRadius: 4,
-        pointStyle: 'circle',
-        pointBackgroundColor: '#FFBA86',
-        pointBorderColor: '#fff',
-        pointBorderWidth: 1.5
-      }
+      { label: 'BKB Rua', data: [43,104,87,96,98,88,103,101,89,99,100], borderColor: '#8AA5FF', borderWidth: 1.5, fill: false, tension: 0.3, pointRadius: 4, pointBackgroundColor: '#8AA5FF', pointBorderColor: '#fff', pointBorderWidth: 1.5 },
+      { label: 'BKB Shop', data: [47,105,99,100,107,95,100,103,92,95,98], borderColor: '#c4ceff', borderWidth: 1.5, fill: false, tension: 0.3, pointRadius: 4, pointBackgroundColor: '#c4ceff', pointBorderColor: '#fff', pointBorderWidth: 1.5, borderDash: [4,3] },
+      { label: 'PLK Shop', data: [126,253,235,267,248,206,236,248,229,231,186], borderColor: '#FFBA86', borderWidth: 1.5, fill: false, tension: 0.3, pointRadius: 4, pointBackgroundColor: '#FFBA86', pointBorderColor: '#fff', pointBorderWidth: 1.5 }
     ]
   },
   options: {
     responsive: true, maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      annotation: {
-        annotations: {
-          inverno: {
-            type: 'box',
-            xMin: -0.5, xMax: 2.5,
-            backgroundColor: 'rgba(100,140,255,0.13)',
-            borderWidth: 0,
-            label: { content: 'Inverno', display: true, color: '#6A8FD4', font: { size: 10, weight: '600' }, position: { x: 'center', y: 'start' }, yAdjust: 8 }
-          },
-          primavera: {
-            type: 'box',
-            xMin: 2.5, xMax: 5.5,
-            backgroundColor: 'rgba(255,210,100,0.13)',
-            borderWidth: 0,
-            label: { content: 'Primavera', display: true, color: '#b08a00', font: { size: 10, weight: '600' }, position: { x: 'center', y: 'start' }, yAdjust: 8 }
-          },
-          verao: {
-            type: 'box',
-            xMin: 5.5, xMax: 8.5,
-            backgroundColor: 'rgba(255,140,60,0.16)',
-            borderWidth: 0,
-            label: { content: 'Verão', display: true, color: '#c45a00', font: { size: 10, weight: '600' }, position: { x: 'center', y: 'start' }, yAdjust: 8 }
-          },
-          outono: {
-            type: 'box',
-            xMin: 8.5, xMax: 10.5,
-            backgroundColor: 'rgba(130,150,175,0.11)',
-            borderWidth: 0,
-            label: { content: 'Outono', display: true, color: '#7A90A8', font: { size: 10, weight: '600' }, position: { x: 'center', y: 'start' }, yAdjust: 8 }
-          }
-        }
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: { callback: v => v + 'L' },
-        grid: {
-          drawTicks: false,
-          color: ctx => ctx.index === ctx.chart.scales.y.ticks.length - 1 ? 'transparent' : gridColor
-        },
-        border: { display: false }
-      },
-      x: { grid: { color: gridColor, drawTicks: false }, border: { display: false }, ticks: { autoSkip: false, maxRotation: 45 } }
-    }
+    plugins: { legend: { display: false }, annotation: { annotations: { inverno: { type:'box', xMin:-0.5, xMax:2.5, backgroundColor:'rgba(100,140,255,0.13)', borderWidth:0, label:{content:'Inverno',display:true,color:'#6A8FD4',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}, primavera: { type:'box', xMin:2.5, xMax:5.5, backgroundColor:'rgba(255,210,100,0.13)', borderWidth:0, label:{content:'Primavera',display:true,color:'#b08a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}, verao: { type:'box', xMin:5.5, xMax:8.5, backgroundColor:'rgba(255,140,60,0.16)', borderWidth:0, label:{content:'Verão',display:true,color:'#c45a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}, outono: { type:'box', xMin:8.5, xMax:10.5, backgroundColor:'rgba(130,150,175,0.11)', borderWidth:0, label:{content:'Outono',display:true,color:'#7A90A8',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}} } } },
+    scales: { y: { beginAtZero: true, ticks: { callback: v => v + 'L' }, grid: { color: gridColor }, border: { display: false } }, x: { grid: { color: gridColor }, border: { display: false }, ticks: { autoSkip: false, maxRotation: 45 } } }
   }
 });
 
-
-// Helper to build regional bar list
 function buildRegList(elId, data, pctKey, nKey, totalKey, popPctKey, popNKey, popTotalKey) {
   const el = document.getElementById(elId);
   data.forEach(r => {
@@ -1568,151 +1127,82 @@ function buildRegList(elId, data, pctKey, nKey, totalKey, popPctKey, popNKey, po
     const popPct = r[popPctKey];
     const popVal = popPct !== null ? Math.round(popPct) : null;
     const popHtml = popVal !== null
-      ? `<div class="reg-bar-line">
-          <span class="reg-bar-label pop">PLK</span>
-          <div class="reg-track">
-            <div class="reg-fill" style="width:${popPct}%;background:#FFBA86">
-              <span class="reg-bar-tooltip">${r[popNKey]} de ${r[popTotalKey]} lojas</span>
-            </div>
-          </div>
-          <span class="reg-val">${popVal}%</span>
-        </div>`
+      ? `<div class="reg-bar-line"><span class="reg-bar-label pop">PLK</span><div class="reg-track"><div class="reg-fill" style="width:${popPct}%;background:#FFBA86"><span class="reg-bar-tooltip">${r[popNKey]} de ${r[popTotalKey]} lojas</span></div></div><span class="reg-val">${popVal}%</span></div>`
       : `<div class="reg-bar-line"><span class="reg-bar-label" style="color:#ccc">PLK</span><span style="font-size:11px;color:#ccc;font-style:italic">— sem unidades</span></div>`;
-    el.innerHTML += `<div class="reg-row">
-      <span class="reg-name">${r.name}</span>
-      <div class="reg-bars">
-        <div class="reg-bar-line">
-          <span class="reg-bar-label bk">BKB</span>
-          <div class="reg-track">
-            <div class="reg-fill" style="width:${r[pctKey]}%;background:#8AA5FF">
-              <span class="reg-bar-tooltip">${r[nKey]} de ${r[totalKey]} lojas</span>
-            </div>
-          </div>
-          <span class="reg-val">${bkVal}%</span>
-        </div>
-        ${popHtml}
-      </div>
-    </div>`;
+    el.innerHTML += `<div class="reg-row"><span class="reg-name">${r.name}</span><div class="reg-bars"><div class="reg-bar-line"><span class="reg-bar-label bk">BKB</span><div class="reg-track"><div class="reg-fill" style="width:${r[pctKey]}%;background:#8AA5FF"><span class="reg-bar-tooltip">${r[nKey]} de ${r[totalKey]} lojas</span></div></div><span class="reg-val">${bkVal}%</span></div>${popHtml}</div></div>`;
   });
 }
 
-// T1+T2
 const regioes_t12 = [
-  { name:'Norte',        bkPct:85.7, popPct:null,  bkN:6,   bkTotal:7,   popN:null, popTotal:null },
-  { name:'Sul',          bkPct:59.3, popPct:100.0, bkN:48,  bkTotal:81,  popN:7,    popTotal:7    },
-  { name:'Nordeste',     bkPct:67.5, popPct:100.0, bkN:54,  bkTotal:80,  popN:8,    popTotal:8    },
-  { name:'Centro-Oeste', bkPct:63.0, popPct:80.0,  bkN:29,  bkTotal:46,  popN:4,    popTotal:5    },
-  { name:'Sudeste',      bkPct:37.1, popPct:91.0,  bkN:176, bkTotal:475, popN:61,   popTotal:67   },
+  { name:'Norte', bkPct:85.7, popPct:null, bkN:6, bkTotal:7, popN:null, popTotal:null },
+  { name:'Sul', bkPct:59.3, popPct:100.0, bkN:48, bkTotal:81, popN:7, popTotal:7 },
+  { name:'Nordeste', bkPct:67.5, popPct:100.0, bkN:54, bkTotal:80, popN:8, popTotal:8 },
+  { name:'Centro-Oeste', bkPct:63.0, popPct:80.0, bkN:29, bkTotal:46, popN:4, popTotal:5 },
+  { name:'Sudeste', bkPct:37.1, popPct:91.0, bkN:176, bkTotal:475, popN:61, popTotal:67 },
 ];
 buildRegList('reg_list_t12', regioes_t12, 'bkPct','bkN','bkTotal','popPct','popN','popTotal');
 
-// T3+T4
 const regioes_t34 = [
-  { name:'Norte',        bkPct:14.3, popPct:null,  bkN:1,   bkTotal:7,   popN:null, popTotal:null },
-  { name:'Sul',          bkPct:40.7, popPct:0.0,   bkN:33,  bkTotal:81,  popN:0,    popTotal:7    },
-  { name:'Nordeste',     bkPct:32.5, popPct:0.0,   bkN:26,  bkTotal:80,  popN:0,    popTotal:8    },
-  { name:'Centro-Oeste', bkPct:37.0, popPct:20.0,  bkN:17,  bkTotal:46,  popN:1,    popTotal:5    },
-  { name:'Sudeste',      bkPct:62.9, popPct:9.0,   bkN:299, bkTotal:475, popN:6,    popTotal:67   },
+  { name:'Norte', bkPct:14.3, popPct:null, bkN:1, bkTotal:7, popN:null, popTotal:null },
+  { name:'Sul', bkPct:40.7, popPct:0.0, bkN:33, bkTotal:81, popN:0, popTotal:7 },
+  { name:'Nordeste', bkPct:32.5, popPct:0.0, bkN:26, bkTotal:80, popN:0, popTotal:8 },
+  { name:'Centro-Oeste', bkPct:37.0, popPct:20.0, bkN:17, bkTotal:46, popN:1, popTotal:5 },
+  { name:'Sudeste', bkPct:62.9, popPct:9.0, bkN:299, bkTotal:475, popN:6, popTotal:67 },
 ];
 buildRegList('reg_list_t34', regioes_t34, 'bkPct','bkN','bkTotal','popPct','popN','popTotal');
 
-// Repasse realizado vs potencial — barras empilhadas
+// ── c_repasse — VALORES CORRIGIDOS ──────────────────────────
 new Chart(document.getElementById('c_repasse'), {
   type: 'bar',
   data: {
     labels: months,
     datasets: [
-      {
-        label: 'Realizado',
-        data: [74700,166399,151601,161894,163968,143952,161663,162446,147196,154149,149233],
-        backgroundColor: '#8AA5FF',
-        stack: 's',
-        borderRadius: 0,
-        order: 2
-      },
-      {
-        label: 'Gap potencial',
-        data: [128160,36460,51258,40966,38891,58907,41196,40413,55664,48710,53626],
-        backgroundColor: '#FFD4A8',
-        stack: 's',
-        borderRadius: 4,
-        order: 2
-      },
-      {
-        type: 'line',
-        label: '% realizado',
-        data: [74700,166399,151601,161894,163968,143952,161663,162446,147196,154149,149233],
-        borderColor: '#b25a00',
-        borderWidth: 2,
-        pointBackgroundColor: '#b25a00',
-        pointBorderColor: '#b25a00',
-        pointBorderWidth: 0,
-        pointRadius: 3,
-        tension: 0.3,
-        fill: 'origin',
-        backgroundColor: 'rgba(178,90,0,0.08)',
-        yAxisID: 'y',
-        order: 0
-      }
+      { label: 'Realizado', data: [106470,152028,152744,153925,153539,155626,156961,159726,156018,154937,168196], backgroundColor: '#8AA5FF', stack: 's', borderRadius: 0, order: 2 },
+      { label: 'Gap potencial', data: [32273,51357,52563,53097,53819,53814,54943,55096,53235,54513,59442], backgroundColor: '#FFD4A8', stack: 's', borderRadius: 4, order: 2 },
+      { type: 'line', label: '% realizado', data: [106470,152028,152744,153925,153539,155626,156961,159726,156018,154937,168196], borderColor: '#b25a00', borderWidth: 2, pointBackgroundColor: '#b25a00', pointRadius: 3, tension: 0.3, fill: 'origin', backgroundColor: 'rgba(178,90,0,0.08)', yAxisID: 'y', order: 0 }
     ]
   },
   options: {
     responsive: true, maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
-      tooltip: {
-        mode: 'index',
-        callbacks: {
-          label: ctx => {
-            const pct = [36.8,82.0,74.7,79.8,80.8,71.0,79.7,80.1,72.6,76.0,73.6];
-            if (ctx.dataset.label === '% realizado')
-              return ` % realizado: ${pct[ctx.dataIndex]}%`;
-            return ` ${ctx.dataset.label}: R$ ${ctx.parsed.y.toLocaleString('pt-BR')}`;
-          }
-        }
-      }
+      tooltip: { mode: 'index', callbacks: { label: ctx => {
+        const pct = [76.7,74.7,74.4,74.4,74.0,74.3,74.1,74.4,74.6,74.0,73.9];
+        if (ctx.dataset.label === '% realizado') return ` % realizado: ${pct[ctx.dataIndex]}%`;
+        return ` ${ctx.dataset.label}: R$ ${ctx.parsed.y.toLocaleString('pt-BR')}`;
+      }}}
     },
     scales: {
-      y: {
-        stacked: true,
-        beginAtZero: true,
-        suggestedMax: 220000,
-        ticks: { callback: v => 'R$ ' + (v/1000).toFixed(0) + 'k' },
-        grid: { drawTicks: false, color: ctx => ctx.index === ctx.chart.scales.y.ticks.length - 1 ? 'transparent' : gridColor },
-        border: { display: false }
-      },
-      y2: { beginAtZero: true, max: 100, display: false },
+      y: { stacked: true, beginAtZero: true, suggestedMax: 250000, ticks: { callback: v => 'R$ ' + (v/1000).toFixed(0) + 'k' }, grid: { color: gridColor }, border: { display: false } },
       x: { stacked: true, grid: { display: false }, border: { display: false }, ticks: { autoSkip: false, maxRotation: 45 } }
     }
   }
 });
 
-// Gap por estado
-
-// Gap por estado — HTML bars
+// ── Estado gap — VALORES CORRIGIDOS ─────────────────────────
 const precoEstado = {
-  'SP':2.02,'RJ':2.43,'MG':2.02,'RS':1.62,'PR':2.02,'GO':1.62,
-  'BA':2.02,'CE':1.62,'DF':2.02,'PE':1.46,'ES':2.02,'SE':1.46,
-  'PB':1.46,'SC':2.02,'PA':1.46,'MA':1.01,'RN':1.46,'AL':0.81,
-  'MS':1.05,'MT':1.62
+  'SP':2.00,'RJ':3.00,'MG':2.50,'RS':2.00,'PR':2.50,'GO':2.00,
+  'BA':2.50,'CE':2.00,'DF':2.50,'PE':1.80,'ES':2.50,'SE':1.80,
+  'PB':1.80,'SC':2.50,'PA':1.80,'MA':1.25,'RN':1.80,'AL':1.00,
+  'MS':1.30,'MT':2.00
 };
 
 const estadoData = [
-  { uf:'SP', real:721160, gap:286022, n:372 },
-  { uf:'RJ', real:249998, gap:103527, n:99  },
-  { uf:'MG', real:142046, gap:40465,  n:57  },
-  { uf:'RS', real:37422,  gap:28962,  n:34  },
-  { uf:'PR', real:167438, gap:23898,  n:50  },
-  { uf:'GO', real:48195,  gap:20856,  n:26  },
-  { uf:'BA', real:53490,  gap:19975,  n:21  },
-  { uf:'CE', real:27394,  gap:13362,  n:16  },
-  { uf:'DF', real:33431,  gap:12683,  n:16  },
-  { uf:'PE', real:48092,  gap:12043,  n:21  },
-  { uf:'ES', real:23109,  gap:11778,  n:14  },
+  { uf:'SP', real:579330, gap:258675, n:308 },
+  { uf:'RJ', real:289140, gap:105789, n:85  },
+  { uf:'MG', real:172652, gap:41962,  n:49  },
+  { uf:'GO', real:51040,  gap:27350,  n:26  },
+  { uf:'PR', real:206908, gap:24852,  n:50  },
+  { uf:'RS', real:56950,  gap:18144,  n:31  },
+  { uf:'ES', real:20375,  gap:17205,  n:13  },
+  { uf:'CE', real:32006,  gap:15242,  n:17  },
+  { uf:'PE', real:60471,  gap:13457,  n:21  },
+  { uf:'BA', real:61325,  gap:13208,  n:20  },
+  { uf:'DF', real:37875,  gap:12072,  n:13  },
 ].sort((a,b) => b.gap - a.gap);
 
-const gapTotal = 602716;
-const gapPctTotal = {'SP':47.5,'RJ':17.2,'MG':6.7,'RS':4.8,'PR':4.0,'GO':3.5,'BA':3.3,'CE':2.2,'DF':2.1,'PE':2.0,'ES':2.0};
+const gapTotal = 574152;
+const gapPctTotal = {'SP':45.1,'RJ':18.4,'MG':7.3,'GO':4.8,'PR':4.3,'RS':3.2,'ES':3.0,'CE':2.7,'PE':2.3,'BA':2.3,'DF':2.1};
 
 const maxTotal = Math.max(...estadoData.map(e => e.real + e.gap));
 const el_estado = document.getElementById('estado_gap_html');
@@ -1724,7 +1214,6 @@ estadoData.forEach(e => {
   const gapLoja  = Math.round(e.gap / e.n).toLocaleString('pt-BR');
   const gapFmt   = 'R$ ' + (e.gap/1000).toFixed(0) + 'k';
   const pctTotal = gapPctTotal[e.uf] || 0;
-
   el_estado.innerHTML += `
     <div style="margin-bottom:11px">
       <div style="display:flex;align-items:center;gap:10px">
@@ -1748,253 +1237,144 @@ estadoData.forEach(e => {
       </div>
     </div>`;
 });
-// ── BKB Charts ──────────────────────────────────────────────
 
-// Sazonalidade BKB
+// ── BKB Charts ───────────────────────────────────────────────
 new Chart(document.getElementById('bk_saz'), {
   type:'line',
-  data:{
-    labels:months,
-    datasets:[
-      {label:'Shopping',data:[47,105,99,100,107,95,100,103,92,95,98],borderColor:'#8AA5FF',backgroundColor:'rgba(138,165,255,0.07)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#8AA5FF',pointBorderColor:'#fff',pointBorderWidth:1.5},
-      {label:'Rua',     data:[43,104,87,96,98,88,103,101,89,99,100], borderColor:'#c4ceff',backgroundColor:'rgba(196,206,255,0.07)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#c4ceff',pointBorderColor:'#fff',pointBorderWidth:1.5,borderDash:[4,3]}
-    ]
-  },
-  options:{
-    responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},annotation:{annotations:{inverno:{type:'box',xMin:-0.5,xMax:2.5,backgroundColor:'rgba(100,140,255,0.13)',borderWidth:0,label:{content:'Inverno',display:true,color:'#6A8FD4',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},primavera:{type:'box',xMin:2.5,xMax:5.5,backgroundColor:'rgba(255,210,100,0.13)',borderWidth:0,label:{content:'Primavera',display:true,color:'#b08a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},verao:{type:'box',xMin:5.5,xMax:8.5,backgroundColor:'rgba(255,140,60,0.16)',borderWidth:0,label:{content:'Verão',display:true,color:'#c45a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},outono:{type:'box',xMin:8.5,xMax:10.5,backgroundColor:'rgba(130,150,175,0.11)',borderWidth:0,label:{content:'Outono',display:true,color:'#7A90A8',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}}}},
-    scales:{
-      y:{beginAtZero:true,ticks:{callback:v=>v+'L'},grid:{drawTicks:false,color:ctx=>ctx.index===ctx.chart.scales.y.ticks.length-1?'transparent':gridColor},border:{display:false}},
-      x:{grid:{color:gridColor,drawTicks:false},border:{display:false},ticks:{autoSkip:false,maxRotation:45}}
-    }
+  data:{ labels:months, datasets:[
+    {label:'Shopping',data:[47,105,99,100,107,95,100,103,92,95,98],borderColor:'#8AA5FF',backgroundColor:'rgba(138,165,255,0.07)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#8AA5FF',pointBorderColor:'#fff',pointBorderWidth:1.5},
+    {label:'Rua',data:[43,104,87,96,98,88,103,101,89,99,100],borderColor:'#c4ceff',backgroundColor:'rgba(196,206,255,0.07)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#c4ceff',pointBorderColor:'#fff',pointBorderWidth:1.5,borderDash:[4,3]}
+  ]},
+  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},annotation:{annotations:{inverno:{type:'box',xMin:-0.5,xMax:2.5,backgroundColor:'rgba(100,140,255,0.13)',borderWidth:0,label:{content:'Inverno',display:true,color:'#6A8FD4',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},primavera:{type:'box',xMin:2.5,xMax:5.5,backgroundColor:'rgba(255,210,100,0.13)',borderWidth:0,label:{content:'Primavera',display:true,color:'#b08a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},verao:{type:'box',xMin:5.5,xMax:8.5,backgroundColor:'rgba(255,140,60,0.16)',borderWidth:0,label:{content:'Verão',display:true,color:'#c45a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},outono:{type:'box',xMin:8.5,xMax:10.5,backgroundColor:'rgba(130,150,175,0.11)',borderWidth:0,label:{content:'Outono',display:true,color:'#7A90A8',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}}}},
+    scales:{ y:{beginAtZero:true,ticks:{callback:v=>v+'L'},grid:{color:gridColor},border:{display:false}}, x:{grid:{color:gridColor},border:{display:false},ticks:{autoSkip:false,maxRotation:45}} }
   }
 });
 
-// Regional BKB
 const bkRegT12=[
-  {name:'Norte',        pct:86, n:6,  total:7,   city:'Ananindeua', cityVal:145, cityN:1},
-  {name:'Nordeste',     pct:68, n:54, total:80,  city:'Cabo de Sto. Agostinho', cityVal:176, cityN:1},
-  {name:'Centro-Oeste', pct:63, n:29, total:46,  city:'Várzea Grande', cityVal:188, cityN:1},
-  {name:'Sul',          pct:59, n:48, total:81,  city:'Maringá', cityVal:281, cityN:5},
-  {name:'Sudeste',      pct:37, n:176,total:475, city:'Nova Iguaçu', cityVal:191, cityN:5},
+  {name:'Norte',pct:86,n:6,total:7,city:'Ananindeua',cityVal:145,cityN:1},
+  {name:'Nordeste',pct:68,n:54,total:80,city:'Cabo de Sto. Agostinho',cityVal:176,cityN:1},
+  {name:'Centro-Oeste',pct:63,n:29,total:46,city:'Várzea Grande',cityVal:188,cityN:1},
+  {name:'Sul',pct:59,n:48,total:81,city:'Maringá',cityVal:281,cityN:5},
+  {name:'Sudeste',pct:37,n:176,total:475,city:'Nova Iguaçu',cityVal:191,cityN:5},
 ];
 const bkRegT34=[
-  {name:'Sudeste',      pct:63, n:299,total:475, city:'Jandira', cityVal:6,  cityN:1},
-  {name:'Sul',          pct:41, n:33, total:81,  city:'Passo Fundo', cityVal:19, cityN:2},
-  {name:'Centro-Oeste', pct:37, n:17, total:46,  city:'Três Lagoas', cityVal:25, cityN:1},
-  {name:'Nordeste',     pct:32, n:26, total:80,  city:'Campina Grande', cityVal:62, cityN:1},
-  {name:'Norte',        pct:14, n:1,  total:7,   city:'Belém', cityVal:141, cityN:6},
+  {name:'Sudeste',pct:63,n:299,total:475,city:'Jandira',cityVal:6,cityN:1},
+  {name:'Sul',pct:41,n:33,total:81,city:'Passo Fundo',cityVal:19,cityN:2},
+  {name:'Centro-Oeste',pct:37,n:17,total:46,city:'Três Lagoas',cityVal:25,cityN:1},
+  {name:'Nordeste',pct:32,n:26,total:80,city:'Campina Grande',cityVal:62,cityN:1},
+  {name:'Norte',pct:14,n:1,total:7,city:'Belém',cityVal:141,cityN:6},
 ];
 
-const maxCityT12 = 300;
-const maxCityT34 = 150;
-
-function buildBkReg(elId,data,color,maxCity,cityLabel){
+function buildBkReg(elId,data,color,maxCity){
   const el=document.getElementById(elId);
   data.forEach(r=>{
-    const cityPct = Math.min((r.cityVal/maxCity*100),100).toFixed(1);
-    el.innerHTML+=`<div style="margin-bottom:12px">
-      <div class="reg-row">
-        <span class="reg-name">${r.name}</span>
-        <div class="reg-bars">
-          <div class="reg-bar-line">
-            <div class="reg-track" data-uf="${r.name}" data-uf="${r.name}" data-real="${r.n} de ${r.total} lojas em T1+T2" data-gap="Melhor cidade: ${r.city} · ${r.cityVal}L/mês" data-gloja="${r.n} de ${r.total} (${r.pct}%)" data-n=""
-                 onmouseenter="showEstadoTip(event,this)" onmouseleave="hideEstadoTip()">
-              <div class="reg-fill" style="width:${r.pct}%;background:${color}"></div>
-            </div>
-            <span class="reg-val">${r.pct}%</span>
-          </div>
-          <div class="reg-bar-line" style="margin-top:3px">
-            <div style="flex:1;height:5px;border-radius:3px;background:rgba(0,0,0,0.05);overflow:hidden">
-              <div style="height:100%;width:${cityPct}%;background:${color};opacity:0.5;border-radius:3px"></div>
-            </div>
-            <span style="font-size:10px;color:var(--text-mid);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:130px;font-weight:400;text-align:right">${r.city} · ${r.cityVal}L/mês</span>
-          </div>
-        </div>
-      </div>
-    </div>`;
+    const cityPct=Math.min((r.cityVal/maxCity*100),100).toFixed(1);
+    el.innerHTML+=`<div style="margin-bottom:12px"><div class="reg-row"><span class="reg-name">${r.name}</span><div class="reg-bars"><div class="reg-bar-line"><div class="reg-track" data-uf="${r.name}" data-real="${r.n} de ${r.total} lojas" data-gap="Melhor cidade: ${r.city} · ${r.cityVal}L/mês" data-gloja="${r.n} de ${r.total} (${r.pct}%)" data-n="" onmouseenter="showEstadoTip(event,this)" onmouseleave="hideEstadoTip()"><div class="reg-fill" style="width:${r.pct}%;background:${color}"></div></div><span class="reg-val">${r.pct}%</span></div><div class="reg-bar-line" style="margin-top:3px"><div style="flex:1;height:5px;border-radius:3px;background:rgba(0,0,0,0.05);overflow:hidden"><div style="height:100%;width:${cityPct}%;background:${color};opacity:0.5;border-radius:3px"></div></div><span style="font-size:10px;color:var(--text-mid);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:130px;font-weight:400;text-align:right">${r.city} · ${r.cityVal}L/mês</span></div></div></div></div>`;
   });
 }
-buildBkReg('bk_reg_t12',bkRegT12,'#8AA5FF',maxCityT12,'melhor');
-buildBkReg('bk_reg_t34',bkRegT34,'#c4ceff',maxCityT34,'pior');
+buildBkReg('bk_reg_t12',bkRegT12,'#8AA5FF',300);
+buildBkReg('bk_reg_t34',bkRegT34,'#c4ceff',150);
 
-// BKB Captura realizada vs potencial
-const bkPct=[35.3,81.6,73.9,77.1,80.4,72.0,80.0,79.8,71.5,76.1,77.2];
+const bkPct=[41.4,63.4,64.1,64.3,64.1,65.3,65.6,67.0,64.8,64.1,70.9];
 new Chart(document.getElementById('bk_repasse'),{
   type:'bar',
   data:{labels:months,datasets:[
-    {type:'bar',label:'Realizado',data:[54925,126818,114810,119826,124943,111925,124324,123992,111162,118238,119942],backgroundColor:'#8AA5FF',stack:'s',borderRadius:0,order:2},
-    {type:'bar',label:'Gap',data:[100536,28643,40651,35635,30518,43536,31136,31469,44299,37223,35519],backgroundColor:'#c4ceff',stack:'s',borderRadius:4,order:2},
-    {type:'line',label:'% realizado',data:[54925,126818,114810,119826,124943,111925,124324,123992,111162,118238,119942],borderColor:'#5577dd',borderWidth:2,pointBackgroundColor:'#5577dd',pointBorderColor:'#5577dd',pointBorderWidth:0,pointRadius:3,tension:0.3,fill:'origin',backgroundColor:'rgba(85,119,221,0.08)',yAxisID:'y',order:0}
+    {type:'bar',label:'Realizado',data:[78972,121091,122239,122751,122364,124549,125259,127864,123656,122415,135394],backgroundColor:'#8AA5FF',stack:'s',borderRadius:0,order:2},
+    {type:'bar',label:'Gap',data:[111877,69758,68609,68098,68484,66300,65590,62984,67192,68434,55455],backgroundColor:'#c4ceff',stack:'s',borderRadius:4,order:2},
+    {type:'line',label:'% realizado',data:[78972,121091,122239,122751,122364,124549,125259,127864,123656,122415,135394],borderColor:'#5577dd',borderWidth:2,pointBackgroundColor:'#5577dd',pointRadius:3,tension:0.3,fill:'origin',backgroundColor:'rgba(85,119,221,0.08)',yAxisID:'y',order:0}
   ]},
-  options:{
-    responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},tooltip:{mode:'index',callbacks:{label:ctx=>{
-      if(ctx.dataset.label==='% realizado') return ` % realizado: ${bkPct[ctx.dataIndex]}%`;
-      return ` ${ctx.dataset.label}: R$ ${ctx.parsed.y.toLocaleString('pt-BR')}`;
-    }},annotation:{annotations:{inverno:{type:'box',xMin:-0.5,xMax:2.5,backgroundColor:'rgba(100,140,255,0.13)',borderWidth:0,label:{content:'Inverno',display:true,color:'#6A8FD4',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},primavera:{type:'box',xMin:2.5,xMax:5.5,backgroundColor:'rgba(255,210,100,0.13)',borderWidth:0,label:{content:'Primavera',display:true,color:'#b08a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},verao:{type:'box',xMin:5.5,xMax:8.5,backgroundColor:'rgba(255,140,60,0.16)',borderWidth:0,label:{content:'Verão',display:true,color:'#c45a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},outono:{type:'box',xMin:8.5,xMax:10.5,backgroundColor:'rgba(130,150,175,0.11)',borderWidth:0,label:{content:'Outono',display:true,color:'#7A90A8',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}}}}},
-    scales:{
-      y:{stacked:true,beginAtZero:true,suggestedMax:170000,ticks:{callback:v=>'R$ '+(v/1000).toFixed(0)+'k'},grid:{drawTicks:false,color:ctx=>ctx.index===ctx.chart.scales.y.ticks.length-1?'transparent':gridColor},border:{display:false}},
-      x:{stacked:true,grid:{display:false},border:{display:false},ticks:{autoSkip:false,maxRotation:45}}
-    }
+  options:{ responsive:true,maintainAspectRatio:false, plugins:{legend:{display:false},tooltip:{mode:'index',callbacks:{label:ctx=>{ if(ctx.dataset.label==='% realizado') return ` % realizado: ${bkPct[ctx.dataIndex]}%`; return ` ${ctx.dataset.label}: R$ ${ctx.parsed.y.toLocaleString('pt-BR')}`; }}}},
+    scales:{ y:{stacked:true,beginAtZero:true,suggestedMax:220000,ticks:{callback:v=>'R$ '+(v/1000).toFixed(0)+'k'},grid:{color:gridColor},border:{display:false}}, x:{stacked:true,grid:{display:false},border:{display:false},ticks:{autoSkip:false,maxRotation:45}} }
   }
 });
-// ── PLK Charts ──────────────────────────────────────────────
-
-// Sazonalidade PLK
-new Chart(document.getElementById('plk_saz'), {
-  type:'line',
-  data:{
-    labels:months,
-    datasets:[
-      {label:'PLK Shop',data:[126,253,235,267,248,206,236,248,229,231,186],borderColor:'#FFBA86',backgroundColor:'rgba(255,186,134,0.08)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#FFBA86',pointBorderColor:'#fff',pointBorderWidth:1.5},
-      {label:'PLK Rua', data:[0,500,200,356,356,167,367,189,278,222,311], borderColor:'#FFD4A8',backgroundColor:'rgba(255,212,168,0.08)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#FFD4A8',pointBorderColor:'#fff',pointBorderWidth:1.5,borderDash:[4,3]}
-    ]
-  },
-  options:{
-    responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},annotation:{annotations:{inverno:{type:'box',xMin:-0.5,xMax:2.5,backgroundColor:'rgba(100,140,255,0.13)',borderWidth:0,label:{content:'Inverno',display:true,color:'#6A8FD4',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},primavera:{type:'box',xMin:2.5,xMax:5.5,backgroundColor:'rgba(255,210,100,0.13)',borderWidth:0,label:{content:'Primavera',display:true,color:'#b08a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},verao:{type:'box',xMin:5.5,xMax:8.5,backgroundColor:'rgba(255,140,60,0.16)',borderWidth:0,label:{content:'Verão',display:true,color:'#c45a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},outono:{type:'box',xMin:8.5,xMax:10.5,backgroundColor:'rgba(130,150,175,0.11)',borderWidth:0,label:{content:'Outono',display:true,color:'#7A90A8',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}}}},
-    scales:{
-      y:{beginAtZero:true,ticks:{callback:v=>v+'L',stepSize:100},grid:{drawTicks:false,color:ctx=>ctx.index===ctx.chart.scales.y.ticks.length-1?'transparent':gridColor},border:{display:false}},
-      x:{grid:{color:gridColor,drawTicks:false},border:{display:false},ticks:{autoSkip:false,maxRotation:45}}
-    }
-  }
-});
-
-// Regional PLK
-const plkRegT12=[
-  {name:'Sul',          pct:100,n:7, total:7,  city:'S. J. Pinhais', cityVal:399, cityN:1},
-  {name:'Nordeste',     pct:100,n:8, total:8,  city:'Recife', cityVal:321, cityN:3},
-  {name:'Sudeste',      pct:91, n:61,total:67, city:'Santo André', cityVal:404, cityN:1},
-  {name:'Centro-Oeste', pct:80, n:4, total:5,  city:'Ap. de Goiânia', cityVal:199, cityN:1},
-];
-const plkRegT34=[
-  {name:'Centro-Oeste', pct:20,n:1, total:5,  city:'Brasília', cityVal:125, cityN:2},
-  {name:'Sudeste',      pct:9, n:6, total:67, city:'Votorantim', cityVal:49, cityN:1},
-  {name:'Sul',          pct:0, n:0, total:7,  city:'Londrina', cityVal:160, cityN:2},
-  {name:'Nordeste',     pct:0, n:0, total:8,  city:'João Pessoa', cityVal:180, cityN:1},
-];
-
-const maxPlkT12 = 450;
-const maxPlkT34 = 200;
-
-function buildPlkReg(elId,data,color,maxCity){
-  const el=document.getElementById(elId);
-  data.forEach(r=>{
-    const cityPct = Math.min((r.cityVal/maxCity*100),100).toFixed(1);
-    el.innerHTML+=`<div style="margin-bottom:12px">
-      <div class="reg-row">
-        <span class="reg-name">${r.name}</span>
-        <div class="reg-bars">
-          <div class="reg-bar-line">
-            <div class="reg-track" data-uf="${r.name}" data-uf="${r.name}" data-real="${r.n} de ${r.total} lojas em T1+T2" data-gap="Melhor cidade: ${r.city} · ${r.cityVal}L/mês" data-gloja="${r.n} de ${r.total} (${r.pct}%)" data-n=""
-                 onmouseenter="showEstadoTip(event,this)" onmouseleave="hideEstadoTip()">
-              <div class="reg-fill" style="width:${r.pct}%;background:${color}"></div>
-            </div>
-            <span class="reg-val">${r.pct}%</span>
-          </div>
-          <div class="reg-bar-line" style="margin-top:3px">
-            <div style="flex:1;height:5px;border-radius:3px;background:rgba(0,0,0,0.05);overflow:hidden">
-              <div style="height:100%;width:${cityPct}%;background:${color};opacity:0.5;border-radius:3px"></div>
-            </div>
-            <span style="font-size:10px;color:var(--text-mid);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:130px;font-weight:400;text-align:right">${r.city} · ${r.cityVal}L/mês</span>
-          </div>
-        </div>
-      </div>
-    </div>`;
-  });
-}
-buildPlkReg('plk_reg_t12',plkRegT12,'#FFBA86',maxPlkT12);
-buildPlkReg('plk_reg_t34',plkRegT34,'#FFD4A8',maxPlkT34);
-
-// PLK Captura realizada vs potencial
-const plkPct=[51.8,103.8,96.4,110.3,102.3,84.0,97.9,100.8,94.5,94.1,76.8];
-const plkReal=[19775,39580,36791,42068,39025,32027,37338,38453,36033,35910,29291];
-const plkGap=[18372,0,1355,0,0,6120,808,0,2113,2236,8855];
-new Chart(document.getElementById('plk_repasse'),{
-  type:'bar',
-  data:{labels:months,datasets:[
-    {type:'bar',label:'Realizado',data:plkReal,backgroundColor:'#FFBA86',stack:'s',borderRadius:0,order:2},
-    {type:'bar',label:'Gap',data:plkGap,backgroundColor:'#FFD4A8',stack:'s',borderRadius:4,order:2},
-    {type:'line',label:'% realizado',data:plkReal.map((v,i)=>v+plkGap[i]>0?v:0),borderColor:'#b35a00',borderWidth:2,pointBackgroundColor:'#b35a00',pointBorderColor:'#b35a00',pointBorderWidth:0,pointRadius:3,tension:0.3,fill:'origin',backgroundColor:'rgba(179,90,0,0.08)',yAxisID:'y',order:0}
-  ]},
-  options:{
-    responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},tooltip:{mode:'index',callbacks:{label:ctx=>{
-      if(ctx.dataset.label==='% realizado') return ` % realizado: ${plkPct[ctx.dataIndex]}%`;
-      return ` ${ctx.dataset.label}: R$ ${ctx.parsed.y.toLocaleString('pt-BR')}`;
-    }},annotation:{annotations:{inverno:{type:'box',xMin:-0.5,xMax:2.5,backgroundColor:'rgba(100,140,255,0.13)',borderWidth:0,label:{content:'Inverno',display:true,color:'#6A8FD4',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},primavera:{type:'box',xMin:2.5,xMax:5.5,backgroundColor:'rgba(255,210,100,0.13)',borderWidth:0,label:{content:'Primavera',display:true,color:'#b08a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},verao:{type:'box',xMin:5.5,xMax:8.5,backgroundColor:'rgba(255,140,60,0.16)',borderWidth:0,label:{content:'Verão',display:true,color:'#c45a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},outono:{type:'box',xMin:8.5,xMax:10.5,backgroundColor:'rgba(130,150,175,0.11)',borderWidth:0,label:{content:'Outono',display:true,color:'#7A90A8',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}}}}},
-    scales:{
-      y:{stacked:true,beginAtZero:true,suggestedMax:50000,ticks:{callback:v=>'R$ '+(v/1000).toFixed(0)+'k'},grid:{drawTicks:false,color:ctx=>ctx.index===ctx.chart.scales.y.ticks.length-1?'transparent':gridColor},border:{display:false}},
-      x:{stacked:true,grid:{display:false},border:{display:false},ticks:{autoSkip:false,maxRotation:45}}
-    }
-  }
-});
-
 
 function buildEstadoGap(elId, data, gapTotal, colorReal, colorGap, colorLine) {
   const el = document.getElementById(elId);
   if (!el) return;
   const maxTotal = Math.max(...data.map(e => e.real + e.gap));
   data.forEach(e => {
-    const realPct  = (e.real / maxTotal * 100).toFixed(1);
-    const gapPct   = (e.gap  / maxTotal * 100).toFixed(1);
-    const pctTotal = Math.round(e.gap / gapTotal * 100);
-    const gapLoja  = Math.round(e.gap / e.n).toLocaleString('pt-BR');
-    const gapFmt   = 'R$ ' + (e.gap/1000).toFixed(0) + 'k';
-    el.innerHTML += `<div style="margin-bottom:11px">
-      <div style="display:flex;align-items:center;gap:10px">
-        <div style="display:flex;align-items:center;gap:6px;width:140px;flex-shrink:0">
-          <span style="font-size:12px;font-weight:600;color:var(--text);width:26px">${e.uf}</span>
-          <span style="display:inline-block;font-size:10px;font-weight:400;font-family:'Inter',sans-serif;padding:2px 7px;border-radius:20px;background:#f1e4da;color:#b35a00;white-space:nowrap">R$${e.preco.toFixed(2)}/L</span>
-        </div>
-        <div style="flex:1;position:relative;height:14px;border-radius:4px;overflow:hidden;background:rgba(0,0,0,0.06)"
-             data-uf="${e.uf}" data-real="R$ ${e.real.toLocaleString('pt-BR')}" data-gap="${gapFmt}" data-gloja="${gapLoja}" data-n="${e.n}" data-pct="${pctTotal}"
-             onmouseenter="showEstadoTip(event,this)" onmouseleave="hideEstadoTip()">
-          <div style="position:absolute;left:0;top:0;height:100%;width:${realPct}%;background:${colorReal}"></div>
-          <div style="position:absolute;left:${realPct}%;top:0;height:100%;width:${gapPct}%;background:${colorGap};border-radius:0 4px 4px 0"></div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;margin-top:3px">
-        <div style="width:140px;flex-shrink:0"></div>
-        <div style="flex:1;height:5px;border-radius:3px;background:rgba(0,0,0,0.05);overflow:hidden">
-          <div style="height:100%;width:${pctTotal}%;background:${colorLine};border-radius:3px;opacity:0.7"></div>
-        </div>
-        <span style="font-size:10px;color:${colorLine};font-weight:500;width:28px;flex-shrink:0;text-align:right">${pctTotal}%</span>
-      </div>
-    </div>`;
+    const realPct=(e.real/maxTotal*100).toFixed(1);
+    const gapPct=(e.gap/maxTotal*100).toFixed(1);
+    const pctTotal=Math.round(e.gap/gapTotal*100);
+    const gapLoja=Math.round(e.gap/e.n).toLocaleString('pt-BR');
+    const gapFmt='R$ '+(e.gap/1000).toFixed(0)+'k';
+    el.innerHTML+=`<div style="margin-bottom:11px"><div style="display:flex;align-items:center;gap:10px"><div style="display:flex;align-items:center;gap:6px;width:140px;flex-shrink:0"><span style="font-size:12px;font-weight:600;color:var(--text);width:26px">${e.uf}</span><span style="display:inline-block;font-size:10px;font-weight:400;font-family:'Inter',sans-serif;padding:2px 7px;border-radius:20px;background:#f1e4da;color:#b35a00;white-space:nowrap">R$${e.preco.toFixed(2)}/L</span></div><div style="flex:1;position:relative;height:14px;border-radius:4px;overflow:hidden;background:rgba(0,0,0,0.06)" data-uf="${e.uf}" data-real="R$ ${e.real.toLocaleString('pt-BR')}" data-gap="${gapFmt}" data-gloja="${gapLoja}" data-n="${e.n}" data-pct="${pctTotal}" onmouseenter="showEstadoTip(event,this)" onmouseleave="hideEstadoTip()"><div style="position:absolute;left:0;top:0;height:100%;width:${realPct}%;background:${colorReal}"></div><div style="position:absolute;left:${realPct}%;top:0;height:100%;width:${gapPct}%;background:${colorGap};border-radius:0 4px 4px 0"></div></div></div><div style="display:flex;align-items:center;gap:10px;margin-top:3px"><div style="width:140px;flex-shrink:0"></div><div style="flex:1;height:5px;border-radius:3px;background:rgba(0,0,0,0.05);overflow:hidden"><div style="height:100%;width:${pctTotal}%;background:${colorLine};border-radius:3px;opacity:0.7"></div></div><span style="font-size:10px;color:${colorLine};font-weight:500;width:28px;flex-shrink:0;text-align:right">${pctTotal}%</span></div></div>`;
   });
 }
 
-// ── BKB Desperdício por estado ───────────────────────────────
 const bkEstadoData = [
-  {uf:'SP', real:479305, gap:276036, n:321, preco:2.02},
-  {uf:'RJ', real:216294, gap:96647,  n:89,  preco:2.43},
-  {uf:'MG', real:112009, gap:40465,  n:51,  preco:2.02},
-  {uf:'RS', real:37422,  gap:28962,  n:34,  preco:1.62},
-  {uf:'PR', real:133158, gap:22575,  n:43,  preco:2.02},
-  {uf:'GO', real:40386,  gap:19341,  n:23,  preco:1.62},
-  {uf:'BA', real:41894,  gap:18268,  n:18,  preco:2.02},
-  {uf:'CE', real:27394,  gap:13361,  n:16,  preco:1.62},
-  {uf:'DF', real:28421,  gap:12144,  n:14,  preco:2.02},
-  {uf:'PE', real:29565,  gap:12042,  n:17,  preco:1.46},
-  {uf:'ES', real:23108,  gap:11777,  n:14,  preco:2.02},
+  {uf:'SP', real:466650, gap:271831, n:265, preco:2.00},
+  {uf:'RJ', real:287265, gap:113850, n:76,  preco:3.00},
+  {uf:'MG', real:142257, gap:46502,  n:43,  preco:2.50},
+  {uf:'GO', real:48180,  gap:26334,  n:23,  preco:2.00},
+  {uf:'PR', real:173555, gap:24980,  n:43,  preco:2.50},
+  {uf:'RS', real:80740,  gap:23540,  n:31,  preco:2.00},
+  {uf:'ES', real:22137,  gap:18782,  n:13,  preco:2.50},
+  {uf:'CE', real:36154,  gap:16778,  n:17,  preco:2.00},
+  {uf:'PE', real:36927,  gap:14156,  n:17,  preco:1.80},
+  {uf:'BA', real:55825,  gap:13667,  n:17,  preco:2.50},
+  {uf:'DF', real:31212,  gap:12952,  n:11,  preco:2.50},
 ];
-const bkGapTotal = 580768;
-buildEstadoGap('bk_estado_gap_html', bkEstadoData, bkGapTotal, '#8AA5FF', '#c4ceff', '#5577dd');
+buildEstadoGap('bk_estado_gap_html', bkEstadoData, 610978, '#8AA5FF', '#c4ceff', '#5577dd');
 
-// ── PLK Desperdício por estado ───────────────────────────────
+// ── PLK Charts ───────────────────────────────────────────────
+new Chart(document.getElementById('plk_saz'), {
+  type:'line',
+  data:{labels:months,datasets:[
+    {label:'PLK Shop',data:[126,253,235,267,248,206,236,248,229,231,186],borderColor:'#FFBA86',backgroundColor:'rgba(255,186,134,0.08)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#FFBA86',pointBorderColor:'#fff',pointBorderWidth:1.5},
+    {label:'PLK Rua',data:[0,500,200,356,356,167,367,189,278,222,311],borderColor:'#FFD4A8',backgroundColor:'rgba(255,212,168,0.08)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#FFD4A8',pointBorderColor:'#fff',pointBorderWidth:1.5,borderDash:[4,3]}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},annotation:{annotations:{inverno:{type:'box',xMin:-0.5,xMax:2.5,backgroundColor:'rgba(100,140,255,0.13)',borderWidth:0,label:{content:'Inverno',display:true,color:'#6A8FD4',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},primavera:{type:'box',xMin:2.5,xMax:5.5,backgroundColor:'rgba(255,210,100,0.13)',borderWidth:0,label:{content:'Primavera',display:true,color:'#b08a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},verao:{type:'box',xMin:5.5,xMax:8.5,backgroundColor:'rgba(255,140,60,0.16)',borderWidth:0,label:{content:'Verão',display:true,color:'#c45a00',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}},outono:{type:'box',xMin:8.5,xMax:10.5,backgroundColor:'rgba(130,150,175,0.11)',borderWidth:0,label:{content:'Outono',display:true,color:'#7A90A8',font:{size:10,weight:'600'},position:{x:'center',y:'start'},yAdjust:8}}}}},
+  scales:{y:{beginAtZero:true,ticks:{callback:v=>v+'L',stepSize:100},grid:{color:gridColor},border:{display:false}},x:{grid:{color:gridColor},border:{display:false},ticks:{autoSkip:false,maxRotation:45}}}}
+});
+
+const plkRegT12=[
+  {name:'Sul',pct:100,n:7,total:7,city:'S. J. Pinhais',cityVal:399,cityN:1},
+  {name:'Nordeste',pct:100,n:8,total:8,city:'Recife',cityVal:321,cityN:3},
+  {name:'Sudeste',pct:91,n:61,total:67,city:'Santo André',cityVal:404,cityN:1},
+  {name:'Centro-Oeste',pct:80,n:4,total:5,city:'Ap. de Goiânia',cityVal:199,cityN:1},
+];
+const plkRegT34=[
+  {name:'Centro-Oeste',pct:20,n:1,total:5,city:'Brasília',cityVal:125,cityN:2},
+  {name:'Sudeste',pct:9,n:6,total:67,city:'Votorantim',cityVal:49,cityN:1},
+  {name:'Sul',pct:0,n:0,total:7,city:'Londrina',cityVal:160,cityN:2},
+  {name:'Nordeste',pct:0,n:0,total:8,city:'João Pessoa',cityVal:180,cityN:1},
+];
+
+function buildPlkReg(elId,data,color,maxCity){
+  const el=document.getElementById(elId);
+  data.forEach(r=>{
+    const cityPct=Math.min((r.cityVal/maxCity*100),100).toFixed(1);
+    el.innerHTML+=`<div style="margin-bottom:12px"><div class="reg-row"><span class="reg-name">${r.name}</span><div class="reg-bars"><div class="reg-bar-line"><div class="reg-track" data-uf="${r.name}" data-real="${r.n} de ${r.total} lojas" data-gap="Melhor cidade: ${r.city} · ${r.cityVal}L/mês" data-gloja="${r.n} de ${r.total} (${r.pct}%)" data-n="" onmouseenter="showEstadoTip(event,this)" onmouseleave="hideEstadoTip()"><div class="reg-fill" style="width:${r.pct}%;background:${color}"></div></div><span class="reg-val">${r.pct}%</span></div><div class="reg-bar-line" style="margin-top:3px"><div style="flex:1;height:5px;border-radius:3px;background:rgba(0,0,0,0.05);overflow:hidden"><div style="height:100%;width:${cityPct}%;background:${color};opacity:0.5;border-radius:3px"></div></div><span style="font-size:10px;color:var(--text-mid);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:130px;font-weight:400;text-align:right">${r.city} · ${r.cityVal}L/mês</span></div></div></div></div>`;
+  });
+}
+buildPlkReg('plk_reg_t12',plkRegT12,'#FFBA86',450);
+buildPlkReg('plk_reg_t34',plkRegT34,'#FFD4A8',200);
+
+const plkPct=[70.3,79.1,78.0,79.7,79.7,79.1,80.7,80.0,81.3,81.6,82.4];
+const plkReal=[27497,30936,30504,31174,31174,30936,31561,31281,31781,31921,32201];
+const plkGap=[11600,8161,8593,7923,7923,8161,7536,7816,7316,7176,6896];
+new Chart(document.getElementById('plk_repasse'),{
+  type:'bar',
+  data:{labels:months,datasets:[
+    {type:'bar',label:'Realizado',data:plkReal,backgroundColor:'#FFBA86',stack:'s',borderRadius:0,order:2},
+    {type:'bar',label:'Gap',data:plkGap,backgroundColor:'#FFD4A8',stack:'s',borderRadius:4,order:2},
+    {type:'line',label:'% realizado',data:plkReal.map((v,i)=>v+plkGap[i]>0?v:0),borderColor:'#b35a00',borderWidth:2,pointBackgroundColor:'#b35a00',pointRadius:3,tension:0.3,fill:'origin',backgroundColor:'rgba(179,90,0,0.08)',yAxisID:'y',order:0}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',callbacks:{label:ctx=>{if(ctx.dataset.label==='% realizado') return ` % realizado: ${plkPct[ctx.dataIndex]}%`; return ` ${ctx.dataset.label}: R$ ${ctx.parsed.y.toLocaleString('pt-BR')}`;}}}},
+    scales:{y:{stacked:true,beginAtZero:true,suggestedMax:50000,ticks:{callback:v=>'R$ '+(v/1000).toFixed(0)+'k'},grid:{color:gridColor},border:{display:false}},x:{stacked:true,grid:{display:false},border:{display:false},ticks:{autoSkip:false,maxRotation:45}}}
+  }
+});
+
 const plkEstadoData = [
-  {uf:'SP', real:241854, gap:9985,  n:51, preco:2.02},
-  {uf:'RJ', real:33704,  gap:6879,  n:10, preco:2.43},
-  {uf:'BA', real:11594,  gap:1705,  n:3,  preco:2.02},
-  {uf:'GO', real:7808,   gap:1513,  n:3,  preco:1.62},
-  {uf:'PR', real:34279,  gap:1322,  n:7,  preco:2.02},
-  {uf:'DF', real:5009,   gap:538,   n:2,  preco:2.02},
+  {uf:'SP', real:159570, gap:43072, n:46, preco:2.00},
+  {uf:'RJ', real:43920,  gap:29835, n:9,  preco:3.00},
+  {uf:'GO', real:5460,   gap:6046,  n:3,  preco:2.00},
+  {uf:'DF', real:7875,   gap:3125,  n:2,  preco:2.50},
+  {uf:'PR', real:40532,  gap:2807,  n:7,  preco:2.50},
+  {uf:'PB', real:2376,   gap:2673,  n:1,  preco:1.80},
 ];
-const plkGapTotal = 21946;
-buildEstadoGap('plk_estado_gap_html', plkEstadoData, plkGapTotal, '#FFBA86', '#FFD4A8', '#b35a00');
-
+buildEstadoGap('plk_estado_gap_html', plkEstadoData, 89102, '#FFBA86', '#FFD4A8', '#b35a00');
 
 </script>
 </body>
