@@ -691,7 +691,7 @@
     <div class="chart-card">
       <div class="chart-header">
         <div class="chart-title">Captura realizada vs potencial</div>
-        <div class="chart-insight">Potencial mensal de R$ 250k se todas as lojas subissem 1 tier. Média de realização: 66%. Gap médio de R$ 86k/mês.</div>
+        <div class="chart-insight">Potencial mensal de R$ 250k se todas as lojas subissem 1 tier. Média de realização: 66%. Gap médio de R$ 85k/mês.</div>
       </div>
       <div class="chart-inner" style="height:300px;position:relative">
         <canvas id="c_repasse" role="img" aria-label="Repasse realizado vs potencial por mês"></canvas>
@@ -999,7 +999,7 @@
   <div class="insight-featured">
     <div class="insight-featured-label">● RESULTADO DO PERÍODO</div>
     <div class="insight-featured-title">R$ 944k de potencial adicional<br>ao longo de 11 meses.</div>
-    <div class="insight-featured-sub">SP e RJ concentram 64% desse potencial. A melhoria de 1 tier por loja já elevaria o repasse mensal de R$ 152k para R$ 250k — um crescimento de 64% com a mesma rede.</div>
+    <div class="insight-featured-sub">SP e RJ concentram 64% desse potencial. A melhoria de 1 tier por loja já elevaria o repasse mensal de R$ 164k para R$ 250k — um crescimento de 52% com a mesma rede.</div>
   </div>
   <div class="insight-section-label">● O QUE OS DADOS REVELAM</div>
   <div class="insight-cards-grid">
@@ -1157,9 +1157,9 @@ new Chart(document.getElementById('c_repasse'), {
   data: {
     labels: months,
     datasets: [
-      { label: 'Realizado', data: [118299,168919,169715,171028,170598,172917,174401,177473,156018,154936,168195], backgroundColor: '#8AA5FF', stack: 's', borderRadius: 0, order: 2 },
-      { label: 'Gap potencial', data: [138370,87750,86954,85642,86071,83752,82269,79196,74984,76066,62807], backgroundColor: '#FFD4A8', stack: 's', borderRadius: 4, order: 2 },
-      { type: 'line', label: '% realizado', data: [118299,168919,169715,171028,170598,172917,174401,177473,156018,154936,168195], borderColor: '#b25a00', borderWidth: 2, pointBackgroundColor: '#b25a00', pointRadius: 3, tension: 0.3, fill: 'origin', backgroundColor: 'rgba(178,90,0,0.08)', yAxisID: 'y', order: 0 }
+      { label: 'Realizado', data: [81116,184647,167252,180599,182515,159409,178050,179510,161877,171018,166107], backgroundColor: '#8AA5FF', stack: 's', borderRadius: 0, order: 2 },
+      { label: 'Gap potencial', data: [168884,65353,82748,69401,67485,90591,71950,70490,88123,78982,83893], backgroundColor: '#FFD4A8', stack: 's', borderRadius: 4, order: 2 },
+      { type: 'line', label: '% realizado', data: [81116,184647,167252,180599,182515,159409,178050,179510,161877,171018,166107], borderColor: '#b25a00', borderWidth: 2, pointBackgroundColor: '#b25a00', pointRadius: 3, tension: 0.3, fill: 'origin', backgroundColor: 'rgba(178,90,0,0.08)', yAxisID: 'y', order: 0 }
     ]
   },
   options: {
@@ -1167,7 +1167,7 @@ new Chart(document.getElementById('c_repasse'), {
     plugins: {
       legend: { display: false },
       tooltip: { mode: 'index', callbacks: { label: ctx => {
-        const pct = [46.1,65.8,66.1,66.6,66.5,67.4,67.9,69.1,67.5,67.1,72.8];
+        const pct = [32.4,73.9,66.9,72.2,73.0,63.8,71.2,71.8,64.8,68.4,66.4];
         if (ctx.dataset.label === '% realizado') return ` % realizado: ${pct[ctx.dataIndex]}%`;
         return ` ${ctx.dataset.label}: R$ ${ctx.parsed.y.toLocaleString('pt-BR')}`;
       }}}
